@@ -5,17 +5,17 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - npm install
-      - npm install -g @angular/cli
+      - "npm install"
+      - "npm install -g @angular/cli"
   pre_build:
     commands:
-      - echo "pre build phase"
+      - "echo \"pre build phase\""
   build:
     commands:
-      - npm run build --prod
+      - "ng build --prod"
   post_build:
     commands:
-      - echo "post build phase"
+      - "echo \"post build phase\""
 artifacts:
   type: zip
   base-directory: dist/wadvisor
