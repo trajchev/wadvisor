@@ -17,7 +17,7 @@ phases:
     commands:
       - echo "post build phase"
 artifacts:
+  type: zip
+  base-directory: dist
   files:
-    - "dist/**"
-    discard-paths: no
-    base-directory: dist/**
+    - "**/*"
