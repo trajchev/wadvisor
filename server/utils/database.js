@@ -2,12 +2,13 @@ const Sequelize = require('sequelize');
 
 // connect to db with sequelize
 const sequelize = new Sequelize(
-    process.env.DATABASE,
-    process.env.DATABASE_USER,
+    process.env.RDS_DB_NAME,
+    process.env.RDS_USERNAME,
     process.env.DATABASE_PASS,
     {
-        host: process.env.DATABASE_HOST,
-        port: process.env.DATABASE_PORT,
+        host: process.env.RDS_HOSTNAME,
+        port: process.env.RDS_PORT,
+        logging: console.log,
         dialect: 'mysql',
         pool: {
             max: 5,
