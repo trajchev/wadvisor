@@ -13,11 +13,13 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-sequelize.sync()
-.then(result => {
-    // console.log(result);
-    app.listen(port);
-})
-.catch(err => {
-    console.log(err)
-});
+app.listen(port);
+
+// sequelize.sync()
+// .then(result => {
+//     // console.log(result);
+//     app.listen(port);
+// })
+// .catch(err => {
+//     console.log(err)
+// });
