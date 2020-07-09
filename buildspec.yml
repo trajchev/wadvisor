@@ -18,6 +18,6 @@ phases:
       - "echo \"post build phase\""
 artifacts:
   type: zip
-  base-directory: dist/wadvisor
+  base-directory: dist/wadvisor/
   files:
     - "**"
