@@ -5,7 +5,7 @@ import { TicketsComponent } from './tickets.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 import { SharedModule } from '../shared/shared.module';
-import { TicketRoutingModule } from './ticket.routing.module';
+import { TicketRoutingModule } from './tickets-routing.module';
 import { reducer } from './state/ticket.reducer';
 import { TicketEffects } from './state/ticket.effects';
 import { BetmatchComponent } from './betmatch/betmatch.component';
