@@ -51,6 +51,5 @@ const createBetMatch = Model => catchAsync(async (req, res, next) => {
 
 module.exports = {
   create,
-  createAssoc,
   createBetMatch
 }
