@@ -33,14 +33,16 @@ export class MatchesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.store.dispatch(new ticketActions.Load());
-    this.tickets$ = this.store.pipe(select(fromTicket.getTickets));
-    this.errorMessage$ = this.store.pipe(select(fromTicket.getError));
+    if (this.userRole == 'pro') {
+      this.store.dispatch(new ticketActions.Load());
+      this.tickets$ = this.store.pipe(select(fromTicket.getTickets));
+      this.errorMessage$ = this.store.pipe(select(fromTicket.getError));
+    }
 
     this.route.params.subscribe((params: Params) => {
       this.getMatches(params['league']);
     });
+
   }
 
   getMatches(league: string) {

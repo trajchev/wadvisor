@@ -8,7 +8,7 @@ import { TicketCreateComponent } from '../modal/ticket-create/ticket-create.comp
 import { PageComponent } from '../modal/page/page.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'ba-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

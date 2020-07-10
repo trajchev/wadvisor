@@ -6,7 +6,7 @@ import d3Tip from 'd3-tip';
 import { MatchService } from '../../match.service';
 
 @Component({
-  selector: 'app-spreads-chart',
+  selector: 'ba-spreads-chart',
   templateUrl: './spreads-chart.component.html',
   styleUrls: ['./spreads-chart.component.scss']
 })

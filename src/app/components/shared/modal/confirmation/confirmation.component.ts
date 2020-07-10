@@ -11,7 +11,7 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-confirmation',
+  selector: 'ba-confirmation',
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.scss']
 })

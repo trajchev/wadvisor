@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 declare var Stripe: any;
 
 @Component({
-  selector: 'app-checkout',
+  selector: 'ba-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })

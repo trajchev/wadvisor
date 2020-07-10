@@ -4,7 +4,7 @@ import { MatchService } from '../match.service';
 import { TicketCreateComponent } from '../../shared/modal/ticket-create/ticket-create.component';
 
 @Component({
-  selector: 'app-match',
+  selector: 'ba-match',
   templateUrl: './match.component.html',
   styleUrls: ['./match.component.scss']
 })

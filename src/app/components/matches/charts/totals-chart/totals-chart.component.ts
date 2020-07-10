@@ -5,7 +5,7 @@ import d3Tip from 'd3-tip';
 import { MatchService } from '../../match.service';
 
 @Component({
-  selector: 'app-totals-chart',
+  selector: 'ba-totals-chart',
   templateUrl: './totals-chart.component.html',
   styleUrls: ['./totals-chart.component.scss']
 })

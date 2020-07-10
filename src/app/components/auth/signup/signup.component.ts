@@ -8,7 +8,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { PageComponent } from '../../shared/modal/page/page.component';
 
 @Component({
-  selector: 'app-signup',
+  selector: 'ba-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })

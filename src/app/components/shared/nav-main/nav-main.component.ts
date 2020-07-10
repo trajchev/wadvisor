@@ -7,7 +7,7 @@ import { FlatMenuNode } from 'src/app/models/flatMenuNode.model';
 import { MenuNode } from 'src/app/models/menuNode';
 
 @Component({
-  selector: 'app-nav-main',
+  selector: 'ba-nav-main',
   templateUrl: './nav-main.component.html',
   styleUrls: ['./nav-main.component.scss']
 })

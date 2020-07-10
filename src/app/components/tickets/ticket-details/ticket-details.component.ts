@@ -5,7 +5,7 @@ import { TicketService } from '../ticket.service';
 import { TicketModel } from 'src/app/models/ticket.model';
 
 @Component({
-  selector: 'app-ticket-details',
+  selector: 'ba-ticket-details',
   templateUrl: './ticket-details.component.html',
   styleUrls: ['./ticket-details.component.scss']
 })

@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-users',
+  selector: 'ba-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

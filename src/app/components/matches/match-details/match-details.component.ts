@@ -12,7 +12,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { TicketCreateComponent } from '../../shared/modal/ticket-create/ticket-create.component';
 
 @Component({
-  selector: 'app-match-details',
+  selector: 'ba-match-details',
   templateUrl: './match-details.component.html',
   styleUrls: ['./match-details.component.scss']
 })

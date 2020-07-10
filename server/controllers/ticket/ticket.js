@@ -11,7 +11,7 @@ const getTicket = read.readAssociated(Ticket, [
   }
 ]);
 const getTicketsLight = read.readAll(Ticket);
-const getTickets = read.readAssociated(Ticket, [
+const getTickets = read.readAssociatedPaginated(Ticket, [
   {
     model: BetMatch,
     as: "betmatches",

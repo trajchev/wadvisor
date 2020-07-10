@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
-  selector: 'app-confirm-user',
+  selector: 'ba-confirm-user',
   templateUrl: './confirm-user.component.html',
   styleUrls: ['./confirm-user.component.scss']
 })

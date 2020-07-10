@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   // signup
-  signup(username: string, email: string, password: string, passwordConfirm: string, recruiter: string) {
+  signup(username: string, email: string, password: string, passwordConfirm: string, recruiter?: string) {
     if ( password !== passwordConfirm ) { return; }
     const authData = { username, email, password, passwordConfirm };
     return this.http.post<AuthResponseData>(`${BACKEND_URL}users/signup/${recruiter}`, authData).subscribe(

@@ -5,7 +5,7 @@ import { PageModel } from 'src/app/models/page.model';
 import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
-  selector: 'app-page',
+  selector: 'ba-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss']
 })

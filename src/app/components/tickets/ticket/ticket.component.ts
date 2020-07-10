@@ -4,7 +4,7 @@ import { TicketDetailsComponent } from '../ticket-details/ticket-details.compone
 import { ConfirmationComponent } from '../../shared/modal/confirmation/confirmation.component';
 
 @Component({
-  selector: 'app-ticket',
+  selector: 'ba-ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss']
 })

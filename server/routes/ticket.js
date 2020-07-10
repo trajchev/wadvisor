@@ -4,6 +4,7 @@ const { ticketCtrl, betmatchCtrl } = require('../controllers');
 const router = express.Router({mergeParams: true});
 
 router.use(auth.protect);
+router.use(auth.restrictTo('pro', 'admin'))
 
 router.get('/', ticketCtrl.getTickets);
 router.get('/light', ticketCtrl.getTicketsLight);

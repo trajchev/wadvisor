@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'ba-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

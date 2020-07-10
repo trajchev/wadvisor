@@ -6,7 +6,7 @@ import d3Tip from 'd3-tip';
 import { H2HModel } from '../../../../models/h2h.model';
 
 @Component({
-  selector: 'app-h2h-chart',
+  selector: 'ba-h2h-chart',
   templateUrl: './h2h-chart.component.html',
   styleUrls: ['./h2h-chart.component.scss']
 })

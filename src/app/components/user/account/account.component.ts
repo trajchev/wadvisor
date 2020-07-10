@@ -10,7 +10,7 @@ import { mimeType } from '../mime-type.validator';
 import { environment } from "src/environments/environment";
 
 @Component({
-  selector: 'app-account',
+  selector: 'ba-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })

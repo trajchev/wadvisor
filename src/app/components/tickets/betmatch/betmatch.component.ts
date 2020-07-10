@@ -7,7 +7,7 @@ import { TicketDetailsComponent } from '../ticket-details/ticket-details.compone
 import { TicketService } from '../ticket.service';
 
 @Component({
-  selector: 'app-betmatch',
+  selector: 'ba-betmatch',
   templateUrl: './betmatch.component.html',
   styleUrls: ['./betmatch.component.scss']
 })

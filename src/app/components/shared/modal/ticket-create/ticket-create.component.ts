@@ -8,7 +8,7 @@ import * as fromTicket from '../../../tickets/state';
 import * as ticketActions from '../../../tickets/state/ticket.actions';
 
 @Component({
-  selector: 'app-ticket-create',
+  selector: 'ba-ticket-create',
   templateUrl: './ticket-create.component.html',
   styleUrls: ['./ticket-create.component.scss']
 })
