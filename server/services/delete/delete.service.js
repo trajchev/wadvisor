@@ -1,5 +1,5 @@
-const catchAsync = require('../utils/catch-async');
-const BAError = require('../utils/BAError');
+const catchAsync = require('../../utils/catch-async');
+const BAError = require('../../utils/BAError');
 
 const remove = Model => catchAsync(async (req, res, next) => {
 

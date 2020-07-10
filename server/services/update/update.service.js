@@ -1,6 +1,6 @@
-const catchAsync = require('../utils/catch-async');
-const BAError = require('../utils/BAError');
-const filterObj = require('../utils/filter-obj');
+const catchAsync = require('../../utils/catch-async');
+const BAError = require('../../utils/BAError');
+const filterObj = require('../../utils/filter-obj');
 
 const update = Model => catchAsync(async (req, res, next) => {
 

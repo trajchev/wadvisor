@@ -1,7 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {apiVersion: ''});
 
-const catchAsync = require('../utils/catch-async');
-const BAError = require('../utils/BAError');
+const catchAsync = require('../../utils/catch-async');
+const BAError = require('../../utils/BAError');
 
 const createCustomer = Model => catchAsync(async (req, res, next) => {
 
