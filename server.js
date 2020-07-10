@@ -9,9 +9,9 @@ const port = process.env.PORT || 3300;
 app.set('port', port);
 
 // Dev logging
-// if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
-// }
+}
 
 sequelize.sync()
 .then(result => {

@@ -185,7 +185,7 @@ const readUser = Model => catchAsync(async (req, res, next) => {
   }
 
   const photo = doc.photo;
-  doc.photo = `${process.env.BE_URL}/img/users/${photo}`;
+  doc.photo = `${process.env.BASE_URL}img/users/${photo}`;
 
   res.status(200).json({
       status: 'success',
