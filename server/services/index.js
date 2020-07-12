@@ -4,7 +4,8 @@ const update = require('./update/update.service');
 const remove = require('./delete/delete.service');
 const customer = require('./customer/customer.service');
 const email = require('./email/email.service');
+const resize = require('./resize/resize.service');
 
 module.exports = {
-  create, read, update, remove, customer, email
+  create, read, update, remove, customer, email, resize
 }

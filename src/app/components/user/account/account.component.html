@@ -12,7 +12,7 @@
                       <img [src]="imagePreview" [alt]="'User Photo'" />
                   </div>
                   <form  [formGroup]="imageForm" (ngSubmit)="onImageSave()" class="w3-animate-zoom">
-                      <input type="file" #filePicker (change)="onImagePicked($event)" class="file-input"/>
+                      <input type="file" accept="image/*" #filePicker (change)="onImagePicked($event)" class="file-input"/>
                       <button type="submit" mat-raised-button color="primary" [disabled]="!imageForm.valid">submit</button>
                   </form>
               </div>

@@ -1,5 +1,5 @@
 const { User } = require("../../models");
-const { read, update, remove, email, customer } = require('../../services');
+const { read, update, remove, email, customer, resize } = require('../../services');
 const upload = require("../../utils/upload");
 
 const uploadUserPhoto = upload.single('photo');
@@ -22,6 +22,9 @@ const retrievePaymentMethod = customer.retrievePaymentMethod(User);
 const retrieveUpcomingInvoice = customer.retrieveUpcomingInvoice(User);
 const deleteUser = remove.remove(User);
 const deleteMe = remove.removeUser(User);
+const resizeUserPhoto = resize.resizeUserPhoto();
+
+
 
 module.exports = {
   uploadUserPhoto,
@@ -39,5 +42,6 @@ module.exports = {
   updateSubscription,
   retrievePaymentMethod,
   retrieveUpcomingInvoice,
-  emailUsers
+  emailUsers,
+  resizeUserPhoto
 };

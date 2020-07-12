@@ -88,6 +88,7 @@ export class AccountComponent implements OnInit {
     });
     this.imagePicked = false;
     this.editMode = false;
+    this.imageForm.reset();
   }
 
   openPage(slug: string) {

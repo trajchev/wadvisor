@@ -18,7 +18,7 @@ router.get("/refresh-token", userCtrl.getMe, auth.refreshToken);
 
 router.use(auth.restrictTo('admin', 'pro', 'beginner'));
 
-router.patch("/me/update", userCtrl.uploadUserPhoto, userCtrl.updateMe);
+router.patch("/me/update", userCtrl.uploadUserPhoto, userCtrl.resizeUserPhoto, userCtrl.updateMe);
 router.get("/create-customer", userCtrl.getMe, userCtrl.createCustomer);
 router.patch("/create-subscription", userCtrl.getMe, userCtrl.createSubscription);
 router.patch("/retry-invoice", userCtrl.getMe, userCtrl.retryInvoice)
