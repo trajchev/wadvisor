@@ -4,9 +4,8 @@
           <div class="w3-card w3-padding user">
               <button *ngIf="user.role!='unconfirmed'" mat-raised-button color="primary" class="edit" (click)="onStartEdit()"><mat-icon>edit</mat-icon></button>
               <img [src]="user.photo" [alt]="user.username" class="photo w3-animate-zoom"/>
-              <!-- <button *ngIf="editMode" (click)="filePicker.click()" class="photo-edit-btn" mat-button color="primary">Choose Photo</button> -->
               <div *ngIf="editMode">
-                  <button class="w3-margin" type="button" mat-stroked-button color="primary" (click)="filePicker.click()">Upload Photo</button>
+                  <button class="w3-margin" type="button" mat-stroked-button color="primary" (click)="filePicker.click()">Select Photo</button>
                   <button class="w3-margin" type="button" mat-stroked-button color="accent" (click)="onCancelEdit()">Cancel</button>
                   <div class="image-preview" *ngIf="imagePreview && imagePreview != '' && imageForm.get('photo').valid">
                       <img [src]="imagePreview" [alt]="'User Photo'" />
