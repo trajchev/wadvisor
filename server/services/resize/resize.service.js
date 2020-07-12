@@ -14,6 +14,21 @@ const resizeUserPhoto = () => (req, res, next) => {
   next()
 };
 
+const resizeTeamPhoto = () => (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `team-${Date.now()}.jpg`
+
+  sharp(req.file.buffer)
+  .resize(140, 140)
+  .toFormat('jpg')
+  .jpeg({quality: 60})
+  .toFile(`server/public/img/teams/${req.file.filename}`);
+
+  next()
+}
+
 module.exports = {
-  resizeUserPhoto
+  resizeUserPhoto,
+  resizeTeamPhoto
 }
