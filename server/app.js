@@ -21,9 +21,6 @@ app.enable('trust proxy');
 app.use(cors());
 app.options('*', cors());
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Use helmet for setting basic security headers
 app.use(helmet());
 

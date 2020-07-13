@@ -59,7 +59,7 @@ User.init({
         },
         photo: {
             type: Sequilize.STRING,
-            defaultValue: 'image.jpg'
+            defaultValue: 'image.jpeg'
         },
         role: {
             type: Sequilize.ENUM,

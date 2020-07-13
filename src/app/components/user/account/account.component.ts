@@ -84,7 +84,7 @@ export class AccountComponent implements OnInit {
 
   onImageSave() {
     this.userService.uploadPhoto(this.imageForm.value.photo).subscribe(user => {
-      this.user.photo = `${environment.BASE_URL}img/users/${user.photo}`;
+      this.user.photo = `https://bwr-img.s3.eu-west-3.amazonaws.com/users/${user.photo}`;
     });
     this.imagePicked = false;
     this.editMode = false;
