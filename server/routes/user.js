@@ -3,6 +3,7 @@ const auth = require("../auth");
 const { userCtrl } = require("../controllers");
 const router = express.Router();
 
+
 router.post("/signup/:recruiter?", auth.signup);
 router.post("/login", auth.login);
 router.get("/logout", auth.logout);
@@ -11,6 +12,8 @@ router.patch("/resetPassword/:token", auth.resetPassword);
 
 // Protect all routes after this middleware
 router.use(auth.protect);
+
+router.patch('/test', userCtrl.uploadUserPhoto, userCtrl.updateMe);
 
 router.get("/me", userCtrl.getMe, userCtrl.getUser);
 router.get("/confirm-user/:confirmationToken", userCtrl.getMe, auth.confirmUser);
