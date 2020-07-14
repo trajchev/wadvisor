@@ -23,11 +23,15 @@ p {
 .user {
     position: relative;
     text-align: center;
+    p {
+      font-weight: 500;
+      color: $primary_green;
+    }
     .photo {
         position: relative;
         width: 10rem;
         height: 10rem;
-        margin: 1rem;
+        margin: 1rem auto;
         border-radius: 5rem;
         border: 2px solid $primary_gold;
         overflow: hidden;
@@ -44,6 +48,29 @@ p {
             display: block;
         }
     }
+
+    &-stats {
+      ul {
+        li {
+          font-size: .8rem;
+          .w3-tag {
+            font-weight: 500;
+          }
+
+          button {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+}
+
+mat-icon {
+  position: absolute;
+  font-size: 1rem;
+  top: .5rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .info {
@@ -51,14 +78,16 @@ p {
     p {
         text-align: left;
         position: relative;
-        padding-left: 2rem;
+        padding-left: .4rem;
+        color: $primary_gray;
+        margin: 0;
 
         mat-icon {
-            position: absolute;
-            top: -.5rem;
+            top: .1rem;
             left: -1rem;
-            color: $primary_green;
-            font-size: 2rem;
+            color: $tint_green;
+            font-size: 1rem;
+            cursor: not-allowed;
         }
     }
 }
@@ -75,11 +104,4 @@ p {
     span {
         margin-right: 1rem;
     }
-}
-
-mat-icon {
-    position: absolute;
-    top: .5rem;
-    right: 1rem;
-    cursor: pointer;
 }
