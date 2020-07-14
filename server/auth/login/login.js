@@ -18,7 +18,6 @@ const login = catchAsync(async (req, res, next) => {
     if (!user || !(await user.correctPassword(password, user.password))) {
       createSendToken(null, 200, req, res);
       return next(new BAError('Incorrect email or password', 401));
-
     }
 
     // 3. If everything is OK send token to client

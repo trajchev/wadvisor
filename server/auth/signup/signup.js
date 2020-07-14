@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const catchAsync = require('../../utils/catch-async');
 const { User } = require('../../models');
 const Email = require('../../utils/Email');
@@ -6,7 +7,7 @@ const createSendToken = require('../utils/create-send-token');
 const signup = catchAsync(async (req, res, next) => {
 
   const [user, created] = await User.findOrCreate({
-    where: { username: req.body.username, email: req.body.email },
+    where: { [Op.or]: [{username: req.body.username}, {email: req.body.email}]},
     defaults: {
       username: req.body.username,
       email: req.body.email,
@@ -38,7 +39,6 @@ const signup = catchAsync(async (req, res, next) => {
 
   } else {
     createSendToken(null, 200, req, res);
-    return next(new BAError('Username or/and email already in use', 401));
   }
 });
 
