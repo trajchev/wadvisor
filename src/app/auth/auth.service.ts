@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { AuthModel } from '../models/auth.model';
-import { ErrorHandlerService } from '../components/shared/errorhandler.service';
 
 const BACKEND_URL = environment.ENDPOINT_API;
 
@@ -13,7 +12,6 @@ interface AuthResponseData {
   token: string;
   expiresIn: number;
   level: string;
-  message?: string;
 }
 
 @Injectable({
@@ -29,12 +27,10 @@ export class AuthService {
   authCredentialsOK: boolean;
   redirectUrl: string;
   private authStatusListener = new Subject<boolean>();
-  private message: string = null;
 
   constructor(
     private http: HttpClient,
-    private router: Router,
-    private errorHandlrer: ErrorHandlerService
+    private router: Router
   ) { }
 
   // Retrieve token
@@ -45,10 +41,6 @@ export class AuthService {
   // Retrieve user level
   getLevel(): string {
     return this.getUserLevel();
-  }
-
-  getMessage():string {
-    return this.message;
   }
 
   // Retrieve user auth status
@@ -69,13 +61,14 @@ export class AuthService {
       (response: AuthResponseData) => {
         this.tokenHandler(response)
         if (response.status === 'success') {
+          this.authCredentialsOK = true;
           this.router.navigate(['/me']);
         } else {
-          this.message = response.message;
+          this.authCredentialsOK = false;
+          this.authStatusListener.next(false);
         }
       },
-      // error => this.authStatusListener.next(false)
-      error => this.errorHandlrer.handleError(error)
+      error => this.authStatusListener.next(false)
     );
   }
 
@@ -84,6 +77,13 @@ export class AuthService {
     this.http.post<AuthResponseData>(`${BACKEND_URL}users/login`, authData)
     .subscribe((response: AuthResponseData) => {
       this.tokenHandler(response);
+      if (response.status === 'success') {
+        this.authCredentialsOK = true;
+        this.router.navigate(['/me']);
+      } else {
+        this.authCredentialsOK = false;
+        this.authStatusListener.next(false);
+      }
     }, error => {
       this.authCredentialsOK = false;
       this.authStatusListener.next(false);
@@ -101,9 +101,10 @@ export class AuthService {
   confirmUser(confirmationToken: string) {
     return this.http.get(`${BACKEND_URL}users/confirm-user/${confirmationToken}`)
       .subscribe((res: any) => {
-        if (res.status == 'success') {
+        if (res.status === 'success') {
           this.confirmUserLevel(res.level)
         }
+        this.router.navigate(['/me']);
       })
   }
 

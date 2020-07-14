@@ -7,8 +7,7 @@ const createSendToken = (user, statusCode, req, res) => {
         status: 'fail',
         token: null,
         expiresIn: null,
-        level: null,
-        message: 'Username or/and email address already in use'
+        level: null
       })
     }
 

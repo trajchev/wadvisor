@@ -4,22 +4,19 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from "../../../environments/environment";
 import { UserModel } from '../../models/user.model';
-import { ErrorHandlerService } from '../shared/errorhandler.service';
 
 @Injectable({
   providedIn: "root",
 })
 export class AdminService {
   constructor(
-    private http: HttpClient,
-    private errorHandlerService: ErrorHandlerService
+    private http: HttpClient
   ) { }
 
   getUsers(): Observable<UserModel[]> {
     return this.http.get<{status: string, data: UserModel[]}>(`${environment.ENDPOINT_API}users`)
       .pipe(
-        map((res: {status: string, data: UserModel[]}) => res.data),
-        catchError(this.errorHandlerService.handleError)
+        map((res: {status: string, data: UserModel[]}) => res.data)
       )
   }
 

@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   isLoading: boolean = false;
   isChecked: boolean = false;
   signupForm: FormGroup;
-  message: string = null;
+  authCredentialsOK: boolean = true;
 
   constructor(
     private authService: AuthService,
@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
     const recruiter = this.route.snapshot.paramMap.get('recruiter');
 
     this.authService.signup(userName, email, password, passwordConfirm, recruiter);
-    this.message = this.authService.getMessage();
+    this.authCredentialsOK = this.authService.authCredentialsOK;
     this.isLoading = false;
   }
 

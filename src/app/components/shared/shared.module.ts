@@ -14,7 +14,6 @@ import { TicketCreateComponent } from './modal/ticket-create/ticket-create.compo
 import { MsToDatePipe } from '../../pipes/msToDate.pipe';
 import { StrToDatePipe } from '../../pipes/strToDate.pipe';
 import { PaymentService } from './payment.service';
-import { ErrorHandlerService } from './errorhandler.service';
 import { DataCacheInterceptor } from './data-cache.interceptor';
 
 @NgModule({
@@ -54,7 +53,6 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
   ],
   providers: [
     PaymentService,
-    ErrorHandlerService,
     { provide: HTTP_INTERCEPTORS, useClass: DataCacheInterceptor, multi: true}
   ],
   entryComponents: [SnackbarComponent, ConfirmationComponent, TicketCreateComponent, PageComponent, CheckoutComponent]

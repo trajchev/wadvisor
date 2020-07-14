@@ -3,21 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { ErrorHandlerService } from './errorhandler.service';
 
 @Injectable()
 export class PaymentService {
 
     constructor(
-        private http: HttpClient,
-        private errorHandlingService: ErrorHandlerService
+        private http: HttpClient
     ) { }
 
     // 1. Create customer, save customer id and return object from BE stripe
     createCustomer(): Observable<string> {
         return this.http.get<{status: string, customer: any}>(`${environment.ENDPOINT_API}users/create-customer`).pipe(
-            map((res: any) => res.customer.id),
-            catchError(this.errorHandlingService.handleError)
+            map((res: any) => res.customer.id)
         );
     }
 

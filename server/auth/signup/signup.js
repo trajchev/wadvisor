@@ -6,10 +6,7 @@ const createSendToken = require('../utils/create-send-token');
 const signup = catchAsync(async (req, res, next) => {
 
   const [user, created] = await User.findOrCreate({
-    where: {
-      email: req.body.email,
-      username: req.body.username,
-    },
+    where: { username: req.body.username, email: req.body.email },
     defaults: {
       username: req.body.username,
       email: req.body.email,
@@ -37,10 +34,11 @@ const signup = catchAsync(async (req, res, next) => {
     await new Email(user, url).sendWelcome();
 
     // Gen&Send token to user to authenticate
-    createSendToken(user, 201, req, res);
+    createSendToken(user, 200, req, res);
 
   } else {
-    createSendToken(null, 201, req, res);
+    createSendToken(null, 200, req, res);
+    return next(new BAError('Username or/and email already in use', 401));
   }
 });
 

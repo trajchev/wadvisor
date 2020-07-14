@@ -8,7 +8,6 @@ import { MatchModel } from 'src/app/models/match.model';
 import { TotalsModel } from 'src/app/models/totals.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../shared/modal/snackbar/snackbar.component';
-import { ErrorHandlerService } from '../shared/errorhandler.service';
 
 @Injectable({
   providedIn: "root",
@@ -19,8 +18,7 @@ export class MatchService {
 
   constructor(
     private http: HttpClient,
-    private _snackBar: MatSnackBar,
-    private errorHandlerService: ErrorHandlerService
+    private _snackBar: MatSnackBar
   ) { }
 
   getMatches(sportKey: string): Observable<any> {
@@ -31,8 +29,7 @@ export class MatchService {
     return this.http.get<{status: string, data: MatchModel}>(
       `${environment.ENDPOINT_API}matches/${sportKey}/${matchId}`
     ).pipe(
-      map((res: {status: string, data: MatchModel}) => res.data),
-      catchError(this.errorHandlerService.handleError)
+      map((res: {status: string, data: MatchModel}) => res.data)
     )
   }
 
@@ -48,15 +45,13 @@ export class MatchService {
 
   getSpreads(sportKey: string, matchId: number, oddType: string): Observable<SpreadsModel[]> {
       return this.http.get<{status: string, data: any}>(`${environment.ENDPOINT_API}matches/${sportKey}/${matchId}/${oddType}`).pipe(
-        map((res: {status: string, data: MatchModel}) => res.data.spreads),
-        catchError(this.errorHandlerService.handleError)
+        map((res: {status: string, data: MatchModel}) => res.data.spreads)
       )
   }
 
   getTotals(sportKey: string, matchId: number, oddType: string): Observable<TotalsModel[]> {
     return this.http.get<{status: string, data: any}>(`${environment.ENDPOINT_API}matches/${sportKey}/${matchId}/${oddType}`).pipe(
-      map((res: {status: string, data: MatchModel}) => res.data.totals),
-      catchError(this.errorHandlerService.handleError)
+      map((res: {status: string, data: MatchModel}) => res.data.totals)
     )
   }
 

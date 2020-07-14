@@ -16,7 +16,7 @@ const login = catchAsync(async (req, res, next) => {
     const user = await User.findOne({where: {email, active: true}});
 
     if (!user || !(await user.correctPassword(password, user.password))) {
-      // createSendToken(null, 200, req, res);
+      createSendToken(null, 200, req, res);
       return next(new BAError('Incorrect email or password', 401));
 
     }
