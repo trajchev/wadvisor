@@ -34,7 +34,7 @@ export class TicketComponent implements OnInit {
       width: '260px',
       data: {
         ticketId: this.ticket.id,
-        title: 'Delete ticket',
+        title: 'Delete ticket?',
         message: 'Are you sure you want to delete this ticket?'
       }
     });

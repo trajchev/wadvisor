@@ -10,13 +10,13 @@
       text-align: center;
       padding: 1rem;
       h3 {
-        font-family: "Noto", sans-serif;
         font-size: 1.2rem;
         color: $primary_green;
         margin: 0;
       }
       p {
         font-style: italic;
+        font-size: .8rem;
         color: $primary_gray;
         margin: 0.5rem;
       }
@@ -34,30 +34,9 @@
       }
     }
 
-    &-content {
-      padding: 0 0.5rem 0.5rem 0.5rem;
-      max-height: 20rem;
-      overflow: auto;
-    }
-
     &-footer {
       border-top: 1px solid $pale_gray;
       padding: 0.5rem;
-    }
-
-    &-crumb {
-      padding: 0.5rem;
-      border: 1px solid $pale_gray;
-      h6 {
-        color: $tint_green;
-        padding: 0;
-        margin: 0.1rem;
-      }
-      p {
-        padding: 0;
-        margin: 0.1rem;
-        color: $tint_gray;
-      }
     }
   }
 }

@@ -1,8 +1,5 @@
 <div class="ba-content">
   <div class="w3-row">
-    <div class="w3-panel w3-pale-green w3-border">
-      <h6>If any, your tickets will appear bellow</h6>
-    </div>
     <ba-ticket *ngFor="let ticket of tickets$ | async" [ticket]="ticket"></ba-ticket>
   </div>
 </div>
