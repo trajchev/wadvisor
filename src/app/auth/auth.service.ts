@@ -13,6 +13,7 @@ interface AuthResponseData {
   token: string;
   expiresIn: number;
   level: string;
+  message?: string;
 }
 
 @Injectable({
@@ -28,6 +29,7 @@ export class AuthService {
   authCredentialsOK: boolean;
   redirectUrl: string;
   private authStatusListener = new Subject<boolean>();
+  private message: string = null;
 
   constructor(
     private http: HttpClient,
@@ -43,6 +45,10 @@ export class AuthService {
   // Retrieve user level
   getLevel(): string {
     return this.getUserLevel();
+  }
+
+  getMessage():string {
+    return this.message;
   }
 
   // Retrieve user auth status
@@ -62,7 +68,11 @@ export class AuthService {
     return this.http.post<AuthResponseData>(`${BACKEND_URL}users/signup/${recruiter}`, authData).subscribe(
       (response: AuthResponseData) => {
         this.tokenHandler(response)
-        this.router.navigate(['/me']);
+        if (response.status === 'success') {
+          this.router.navigate(['/me']);
+        } else {
+          this.message = response.message;
+        }
       },
       // error => this.authStatusListener.next(false)
       error => this.errorHandlrer.handleError(error)
@@ -169,25 +179,28 @@ export class AuthService {
   }
 
   private tokenHandler(data: AuthResponseData) {
-    const token = data.token;
-    const level = data.level;
-    this.token = token;
+    if (data.status === 'success') {
+      const token = data.token;
+      const level = data.level;
+      this.token = token;
 
-    if (token) {
-      const expiresInDuration = data.expiresIn;
-      this.setRefreshTokenTimer(expiresInDuration);
-      this.isAuthenticated = true;
-      this.authStatusListener.next(true);
-      const now = new Date();
-      // Set expiration date/time
-      const expirationDate = new Date(now.getTime() + expiresInDuration);
-      this.saveAuthData(token, expirationDate, level);
-      // Once logged in, navigate to dashboard
-      if (this.redirectUrl) {
-        this.router.navigateByUrl(this.redirectUrl);
-      } else {
-        this.router.navigate(['/me']);
+      if (token) {
+        const expiresInDuration = data.expiresIn;
+        this.setRefreshTokenTimer(expiresInDuration);
+        this.isAuthenticated = true;
+        this.authStatusListener.next(true);
+        const now = new Date();
+        // Set expiration date/time
+        const expirationDate = new Date(now.getTime() + expiresInDuration);
+        this.saveAuthData(token, expirationDate, level);
+        // Once logged in, navigate to dashboard
+        if (this.redirectUrl) {
+          this.router.navigateByUrl(this.redirectUrl);
+        } else {
+          this.router.navigate(['/me']);
+        }
       }
     }
+
   }
 }

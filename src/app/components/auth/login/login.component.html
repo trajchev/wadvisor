@@ -17,7 +17,7 @@
                           <mat-error>Please provide a valid password</mat-error>
                   </mat-form-field>
               </div>
-              <div class="w3-panel" *ngIf="!authCredentialsOK"><p class="w3-text-red w3-center">Wrong email / password</p></div>
+              <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">Wrong email / password</div>
               <footer class="w3-container">
                   <a mat-button [routerLink]="['/auth', 'forgot-password']" class="w3-left"><small>Forgot Password?</small></a>
                   <button mat-stroked-button type="submit" color="primary" class="w3-right" [disabled]="!loginForm.valid" >Login</button>

@@ -2,6 +2,16 @@ const signToken = require('./sign-token');
 
 const createSendToken = (user, statusCode, req, res) => {
 
+    if (!user) {
+      return res.status(statusCode).json({
+        status: 'fail',
+        token: null,
+        expiresIn: null,
+        level: null,
+        message: 'Username or/and email address already in use'
+      })
+    }
+
     const token = signToken(user.id);
     const expTime = Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 1;
 
