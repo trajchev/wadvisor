@@ -5,13 +5,15 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - "npm install"
-      - "npm install -g @angular/cli"
+      - "echo \"installation phase\""
   pre_build:
     commands:
       - "echo \"pre build phase\""
+      - "npm install"
+      - "npm install -g @angular/cli"
   build:
     commands:
+      - "echo \"build phase\""
       - "ng build --prod"
   post_build:
     commands:
