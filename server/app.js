@@ -59,7 +59,6 @@ app.use(
         ]
     })
 )
-
 app.use(compression());
 
 // Set up headers for allowing requests from API CONSUMER (me :) )
