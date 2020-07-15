@@ -91,15 +91,6 @@ export class AccountComponent implements OnInit {
     this.imageForm.reset();
   }
 
-  openPage(slug: string) {
-    const pageRef = this.dialog.open(PageComponent, {
-      width: '94%',
-      maxWidth: '680px',
-      data: { slug: slug }
-    });
-
-  }
-
   openSnackBar() {
     this._snackBar.openFromComponent(SnackbarComponent, {
       duration: this.durationInSeconds * 1000,
