@@ -7,15 +7,13 @@ const app = require('./server/app');
 const port = process.env.PORT || 3300;
 app.set('port', port);
 
-console.log(process.env.API_URL)
+// app.listen(port);
 
-app.listen(port);
-
-// sequelize.sync()
-// .then(result => {
-//     // console.log(result);
-//     app.listen(port);
-// })
-// .catch(err => {
-//     console.log(err)
-// });
+sequelize.sync()
+.then(result => {
+    // console.log(result);
+    app.listen(port);
+})
+.catch(err => {
+    console.log(err)
+});
