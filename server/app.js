@@ -4,7 +4,7 @@ const express = require('express');
 const app = express()
 
 app.get('/api/vi', (req, res, next) => {
-  res.render(`Hello from ${process.env.API_URL}`);
+  res.send(`Hello from ${process.env.API_URL}`);
 })
 
 app.use('/', express.static(path.join(__dirname, 'angular')));
