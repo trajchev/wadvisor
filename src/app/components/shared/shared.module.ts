@@ -6,14 +6,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from '../../material.module';
 import { HeaderComponent } from './header/header.component';
 import { NavMainComponent } from './nav-main/nav-main.component';
-import { CheckoutComponent } from './modal/checkout/checkout.component';
 import { ConfirmationComponent } from './modal/confirmation/confirmation.component';
 import { PageComponent } from './modal/page/page.component';
 import { SnackbarComponent } from './modal/snackbar/snackbar.component';
 import { TicketCreateComponent } from './modal/ticket-create/ticket-create.component';
 import { MsToDatePipe } from '../../pipes/msToDate.pipe';
 import { StrToDatePipe } from '../../pipes/strToDate.pipe';
-import { PaymentService } from './payment.service';
 import { DataCacheInterceptor } from './data-cache.interceptor';
 
 @NgModule({
@@ -22,7 +20,6 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
     StrToDatePipe,
     HeaderComponent,
     NavMainComponent,
-    CheckoutComponent,
     ConfirmationComponent,
     PageComponent,
     SnackbarComponent,
@@ -52,9 +49,8 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
     TicketCreateComponent,
   ],
   providers: [
-    PaymentService,
     { provide: HTTP_INTERCEPTORS, useClass: DataCacheInterceptor, multi: true}
   ],
-  entryComponents: [SnackbarComponent, ConfirmationComponent, TicketCreateComponent, PageComponent, CheckoutComponent]
+  entryComponents: [SnackbarComponent, ConfirmationComponent, TicketCreateComponent, PageComponent]
 })
 export class SharedModule { }

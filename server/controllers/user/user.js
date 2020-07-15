@@ -1,5 +1,5 @@
 const { User } = require("../../models");
-const { read, update, remove, email, customer, resize, upload } = require('../../services');
+const { read, update, remove, email, resize, upload } = require('../../services');
 
 const uploadUserPhoto = upload.single('photo');
 const updateUser = update.update(User);
@@ -12,13 +12,6 @@ const getMe = (req, res, next) => {
   next();
 };
 const emailUsers = email.sendMail(User);
-const createCustomer = customer.createCustomer(User);
-const createSubscription = customer.createSubscription(User);
-const retryInvoice = customer.retryInvoice(User);
-const cancelSubscription = customer.cancelSubscription(User);
-const updateSubscription = customer.updateSubscription(User);
-const retrievePaymentMethod = customer.retrievePaymentMethod(User);
-const retrieveUpcomingInvoice = customer.retrieveUpcomingInvoice(User);
 const deleteUser = remove.remove(User);
 const deleteMe = remove.removeUser(User);
 const resizeUserPhoto = resize.resizeUserPhoto();
@@ -32,13 +25,6 @@ module.exports = {
   getMe,
   deleteUser,
   deleteMe,
-  createCustomer,
-  createSubscription,
-  retryInvoice,
-  cancelSubscription,
-  updateSubscription,
-  retrievePaymentMethod,
-  retrieveUpcomingInvoice,
   emailUsers,
   resizeUserPhoto
 };

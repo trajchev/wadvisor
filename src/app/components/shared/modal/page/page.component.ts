@@ -2,8 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { PageService } from './page.service';
 import { PageModel } from 'src/app/models/page.model';
-import { CheckoutComponent } from '../checkout/checkout.component';
-import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
   selector: 'ba-page',
@@ -36,24 +34,4 @@ export class PageComponent implements OnInit {
   onCloseDialog(): void {
     this.pageRef.close();
   }
-
-  openCheckout(ammount: number): void {
-    const pageRef = this.dialog.open(CheckoutComponent, {
-      width: '94%',
-      maxWidth: '420px',
-      data: {ammount}
-    });
-  }
-
-  onCancelSubscription() {
-    const dialogRef = this.dialog.open(ConfirmationComponent, {
-      width: '260px',
-      data: {
-        cancelSubscription: true,
-        title: 'Cancel subscription?',
-        message: 'Are you sure you want to cancel your subscription?'
-      }
-    });
-  }
-
 }

@@ -13,8 +13,6 @@ router.patch("/resetPassword/:token", auth.resetPassword);
 // Protect all routes after this middleware
 router.use(auth.protect);
 
-router.patch('/test', userCtrl.uploadUserPhoto, userCtrl.updateMe);
-
 router.get("/me", userCtrl.getMe, userCtrl.getUser);
 router.get("/confirm-user/:confirmationToken", userCtrl.getMe, auth.confirmUser);
 router.get("/refresh-token", userCtrl.getMe, auth.refreshToken);
@@ -22,13 +20,6 @@ router.get("/refresh-token", userCtrl.getMe, auth.refreshToken);
 router.use(auth.restrictTo('admin', 'pro', 'beginner'));
 
 router.patch("/me/update", userCtrl.uploadUserPhoto, userCtrl.resizeUserPhoto, userCtrl.updateMe);
-router.get("/create-customer", userCtrl.getMe, userCtrl.createCustomer);
-router.patch("/create-subscription", userCtrl.getMe, userCtrl.createSubscription);
-router.patch("/retry-invoice", userCtrl.getMe, userCtrl.retryInvoice)
-router.get("/cancel-subscription", userCtrl.getMe, userCtrl.cancelSubscription)
-router.patch("/retrieve-payment-method", userCtrl.getMe, userCtrl.retrievePaymentMethod)
-router.patch("/retrieve-upcoming-invoice", userCtrl.getMe, userCtrl.retrieveUpcomingInvoice)
-
 router.patch("/me/updatePassword", auth.updatePassword);
 router.delete("/me/delete", userCtrl.deleteMe);
 
