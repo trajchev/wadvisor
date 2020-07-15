@@ -10,12 +10,19 @@
       color="primary"
       (click)="onCloseDialog()"
       >No</button>
-    <button
+    <button *ngIf="!data.cancelSubscription"
         mat-button
         title="{{data.title}}"
         color="accent"
         class="right"
         (click)="deleteTicket()"
+    >Yes</button>
+    <button *ngIf="data.cancelSubscription"
+        mat-button
+        title="{{data.title}}"
+        color="accent"
+        class="right"
+        (click)="cancelSubscription()"
     >Yes</button>
   </footer>
 </div>

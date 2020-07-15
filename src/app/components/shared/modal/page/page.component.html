@@ -57,7 +57,8 @@
               </tr>
               <tr>
                   <td></td>
-                  <td><button class="w3-btn w3-white w3-border w3-border-green w3-round">Free</button></td>
+                  <td *ngIf="!data.last_four"><button class="w3-btn w3-white w3-border w3-border-green w3-round">Free</button></td>
+                  <td *ngIf="data.last_four"><button class="w3-btn w3-white w3-border w3-border-green w3-round" (click)="onCancelSubscription()">Free</button></td>
                   <td><button class="w3-btn w3-border w3-green w3-round" (click)="openCheckout(9.99)">&#36; 9.99 / month</button></td>
               </tr>
             </table>

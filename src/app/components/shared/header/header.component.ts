@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
     const pageRef = this.dialog.open(PageComponent, {
       width: '94%',
       maxWidth: '680px',
-      data: { slug: slug }
+      data: { slug: slug, last_four: this.user.last_four }
     });
   }
 

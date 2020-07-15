@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 import { PageService } from './page.service';
 import { PageModel } from 'src/app/models/page.model';
 import { CheckoutComponent } from '../checkout/checkout.component';
+import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
   selector: 'ba-page',
@@ -16,7 +17,7 @@ export class PageComponent implements OnInit {
 
   constructor(
     public pageRef: MatDialogRef<PageComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { slug: string },
+    @Inject(MAT_DIALOG_DATA) public data: { slug: string, last_four: string },
     private pageService: PageService,
     public dialog: MatDialog
   ) { }
@@ -41,6 +42,17 @@ export class PageComponent implements OnInit {
       width: '94%',
       maxWidth: '420px',
       data: {ammount}
+    });
+  }
+
+  onCancelSubscription() {
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      width: '260px',
+      data: {
+        cancelSubscription: true,
+        title: 'Cancel subscription?',
+        message: 'Are you sure you want to cancel your subscription?'
+      }
     });
   }
 

@@ -15,7 +15,6 @@ if (process.env.NODE_ENV === 'development') {
 
 sequelize.sync()
 .then(result => {
-    // console.log(result);
     app.listen(port);
 })
 .catch(err => {
