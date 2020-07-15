@@ -80,13 +80,10 @@ app.use('/api/v1/teams', team);
 app.use('/api/v1/faq', faq);
 app.use('/api/v1/tickets', ticket);
 
-const app = express()
-
 app.use('/', express.static(path.join(__dirname, 'angular')));
 app.use('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'angular', 'index.html'))
 });
-
 
 app.all('*', (req, res, next) => {
   next(new BAError(`Can't find ${req.originalUrl} on this server!`, 404));
