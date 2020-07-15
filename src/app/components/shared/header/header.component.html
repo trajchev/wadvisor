@@ -5,7 +5,6 @@
   <mat-menu #aboutMenu="matMenu">
     <a mat-menu-item (click)="openPage('about')"><mat-icon>help_outline</mat-icon><span>About</span></a>
     <a mat-menu-item (click)="openPage('tos')"><mat-icon>data_usage</mat-icon><span>TOS</span></a>
-    <a mat-menu-item (click)="openPage('usage')"><mat-icon>apps</mat-icon><span>App Usage</span></a>
     <a *ngIf="userRole!='unconfirmed'" mat-menu-item (click)="openPage('pricing')"><mat-icon>attach_money</mat-icon><span>Pricing</span></a>
   </mat-menu>
   <span class="spacer"></span>

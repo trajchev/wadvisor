@@ -1,4 +1,4 @@
-<div class="w3-col s12 w3-container">
+<div class="w3-col s12 w3-container ba-page">
   <article *ngIf="page">
       <header class="ba-page-header">
           <button mat-button color="accent" class="ba-right" (click)="onCloseDialog()" title="Close">&times;</button>
@@ -6,7 +6,7 @@
           <h4>{{page.description}}</h4>
       </header>
       <div class="ba-page-body">
-          <p *ngIf="!isPagePricing">{{page.content}}</p>
+          <div class="ba-page-content" *ngIf="!isPagePricing" [innerHTML]="page.content"></div>
           <table *ngIf="isPagePricing" class="w3-table-all w3-centered w3-hoverable">
               <thead>
                 <tr>
@@ -58,7 +58,7 @@
               <tr>
                   <td></td>
                   <td><button class="w3-btn w3-white w3-border w3-border-green w3-round">Free</button></td>
-                  <td><button class="w3-btn w3-border w3-green w3-round" (click)="openCheckout(14.99)">&#36; 14.99 / month</button></td>
+                  <td><button class="w3-btn w3-border w3-green w3-round" (click)="openCheckout(9.99)">&#36; 9.99 / month</button></td>
               </tr>
             </table>
       </div>

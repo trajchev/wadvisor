@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable  } from "rxjs";
 import { environment } from "src/environments/environment";
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PageModel } from 'src/app/models/page.model';
 
 @Injectable({

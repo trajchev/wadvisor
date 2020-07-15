@@ -171,7 +171,7 @@ const readUser = Model => catchAsync(async (req, res, next) => {
 
   const doc = await Model.findOne({
       where: {id: req.params.id},
-      attributes: ['username', 'email', 'photo', 'role', 'recruits']
+      attributes: ['username', 'email', 'photo', 'role', 'recruits', 'last_four']
   });
 
   if (!doc) {

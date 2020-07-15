@@ -23,6 +23,8 @@ article {
     }
 
     &-body {
+      max-height: 90vh;
+      overflow: auto;
       p {
         color: $tint_gray;
         margin-top: 0;
@@ -31,8 +33,12 @@ article {
 
     &-content {
       padding: 0 0.5rem 0.5rem 0.5rem;
-      max-height: 80vh;
+      max-height: 70vh;
       overflow: auto;
     }
   }
+}
+
+mat-dialog-container {
+  background-color: yellowgreen;
 }

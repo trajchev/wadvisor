@@ -2,7 +2,7 @@
   <article>
     <header class="ba-page-header">
       <button mat-button color="accent" class="ba-right" (click)="onCloseDialog()" title="Close">&times;</button>
-      <h2>Please confirm subscription</h2>
+      <h2>Please enter your details</h2>
     </header>
     <div class="ba-page-body">
       <p>Your subscription: ${{data.ammount}}</p>
@@ -15,14 +15,14 @@
           <p *ngIf="error" class="w3-text-pink">{{error}}</p>
         </div>
         <div class="form-group">
-          <button mat-raised-button color="primary" class="w3-block w3-margin-top" (click)="onSubmit()">Confirm Subscription Info</button>
+          <button mat-raised-button color="primary" class="w3-block w3-margin-top" (click)="onSubmit()">Confirm</button>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <button mat-raised-button color="accent" class="w3-block w3-margin-top" (click)="onCancelSubscription()">Cancel Subscription</button>
         </div>
         <div class="form-group">
           <button mat-button color="primary" class="w3-block w3-margin-top" (click)="onUpdateSubscription()">Update Subscription</button>
-        </div>
+        </div> -->
       </form>
     </div>
   </article>
