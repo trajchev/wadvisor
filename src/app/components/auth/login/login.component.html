@@ -1,0 +1,29 @@
+<div class="w3-container">
+  <div class="auth-wrapper">
+      <div class="w3-card w3-padding-16">
+          <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
+          <form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <header class="w3-container w3-center">Please log in</header>
+              <div class="w3-container">
+                  <mat-form-field class="w3-block">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="email" placeholder="Ex. pat@example.com">
+                      <mat-error>Please provide a valid email</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w3-block">
+                      <mat-label>Password</mat-label>
+                      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password">
+                          <mat-icon svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hide = !hide"></mat-icon>
+                          <mat-error>Please provide a valid password</mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">Wrong email / password</div>
+              <footer class="w3-container">
+                  <a mat-button [routerLink]="['/auth', 'forgot-password']" class="w3-left"><small>Forgot Password?</small></a>
+                  <button mat-stroked-button type="submit" color="primary" class="w3-right" [disabled]="!loginForm.valid" >Login</button>
+              </footer>
+          </form>
+      </div>
+      <p class="w3-center">Don't have an account? <a mat-button [routerLink]="['/auth', 'register']">SignUp</a></p>
+  </div>
+</div>

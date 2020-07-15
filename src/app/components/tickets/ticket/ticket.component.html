@@ -1,0 +1,19 @@
+<div class="ba-container w3-col l4 m6 s12 w3-animate-zoom">
+  <div class="ba-ticket">
+    <header class="ba-ticket-header">
+      <h3>{{ ticket.title }}</h3>
+      <p>{{ticket.description}}</p>
+    </header>
+    <div class="ba-ticket-body">
+      <p>ticket created @ <strong>{{ticket.createdAt | strToDate}}</strong></p>
+    </div>
+    <footer class="ba-ticket-footer">
+      <a mat-button class="ba-left" title="Ticket details" (click)="openDialog()" color="primary">
+        <mat-icon>view_list</mat-icon>
+      </a>
+      <a mat-button class="ba-right" title="Delete ticket" color="accent" (click)="openConfirmationDialog()">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </footer>
+  </div>
+</div>

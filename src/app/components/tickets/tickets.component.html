@@ -1,0 +1,5 @@
+<div class="ba-content">
+  <div class="w3-row">
+    <ba-ticket *ngFor="let ticket of tickets$ | async" [ticket]="ticket"></ba-ticket>
+  </div>
+</div>

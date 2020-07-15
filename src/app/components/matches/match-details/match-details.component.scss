@@ -1,0 +1,23 @@
+@import '../../../../variables';
+
+h1 {
+    color: $primary_green;
+    strong {
+        color: #000;
+        font-style: italic;
+        font-weight: 700;
+    }
+}
+
+.details {
+    padding: .5rem 1rem;
+
+    p {
+        color: $primary_gray;
+        font-style: italic;
+        .info {
+            color: $primary_green;
+            font-style: normal;
+        }
+    }
+}
