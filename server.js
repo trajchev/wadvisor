@@ -1,11 +1,11 @@
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const morgan = require('morgan');
-dotenv.config({path: './config.env'});
+// dotenv.config({path: './config.env'});
 
 const app = require('./server/app');
 const sequelize = require('./server/utils/database');
 
-const port = process.env.PORT || 3300;
+const port = process.env.PORT || 8080;
 app.set('port', port);
 
 // Dev logging
