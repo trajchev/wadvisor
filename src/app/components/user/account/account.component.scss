@@ -1,0 +1,107 @@
+@import '../../../../variables';
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: $tint_green;
+}
+
+p {
+    color: $primary_gray;
+    font-size: .8rem;
+}
+
+.image-preview {
+    height: 10rem;
+    width: 10rem;
+    margin: 1rem auto;
+
+    img {
+        height: 100%;
+    }
+}
+
+.user {
+    position: relative;
+    text-align: center;
+    p {
+      font-weight: 500;
+      color: $primary_green;
+    }
+    .photo {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        margin: 1rem auto;
+        border-radius: 5rem;
+        border: 2px solid $primary_gold;
+        overflow: hidden;
+    }
+
+    .edit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+    &:hover {
+        .edit {
+            display: block;
+        }
+    }
+
+    &-stats {
+      ul {
+        li {
+          font-size: .8rem;
+          .w3-tag {
+            font-weight: 500;
+          }
+
+          button {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+}
+
+mat-icon {
+  position: absolute;
+  font-size: 1rem;
+  top: .5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.info {
+    border-top: 1px solid $pale_gray;
+    p {
+        text-align: left;
+        position: relative;
+        padding-left: .4rem;
+        color: $primary_gray;
+        margin: 0;
+
+        mat-icon {
+            top: .1rem;
+            left: -1rem;
+            color: $tint_green;
+            font-size: 1rem;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.file-input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.w3-panel {
+    padding: 0 1rem 0 0;
+    margin: 0;
+    span {
+        margin-right: 1rem;
+    }
+}

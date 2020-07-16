@@ -1,0 +1,9 @@
+<router-outlet *ngIf="!isAuthenticated"></router-outlet>
+
+<ba-header *ngIf="isAuthenticated"></ba-header>
+<div class="w3-row" *ngIf="isAuthenticated">
+    <div class="w3-container w3-l3 w3-m3 w3-s12">
+        <ba-nav-main></ba-nav-main>
+    </div>
+    <router-outlet></router-outlet>
+</div>

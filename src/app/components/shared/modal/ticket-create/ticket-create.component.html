@@ -1,0 +1,23 @@
+<form [formGroup]="createTicketForm" (ngSubmit)="onCreateTicket()">
+  <header class="w3-container w3-center">
+     <h3>Create your ticket</h3>
+  </header>
+  <div class="w3-container">
+      <mat-form-field class="w3-block">
+          <mat-label>Ticket title</mat-label>
+          <input matInput formControlName="title" minlength="6" autocomplete="on" required autocomplete
+              placeholder="My ticket title">
+          <mat-error>Please provide a ticket title</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w3-block">
+          <mat-label>Ticket description</mat-label>
+          <input matInput formControlName="description" minlength="6" autocomplete="on" required
+              placeholder="My ticket description">
+              <mat-error>Please provide a ticket description</mat-error>
+      </mat-form-field>
+  </div>
+  <footer class="w3-container">
+      <button mat-stroked-button type="button" color="accent" (click)="onCloseDialog()">Cancel</button>
+      <button mat-stroked-button type="submit" color="primary" class="w3-right" [disabled]="!createTicketForm.valid">Create</button>
+  </footer>
+</form>
