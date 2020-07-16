@@ -1,11 +1,12 @@
 const path = require('path');
 const express = require('express');
 
-const { faq } = require('./routes');
+const { faq, user } = require('./routes');
 
 const app = express();
 
 // Routes
+app.use('/api/v1/users', user);
 app.use('/api/v1/faq', faq);
 
 app.use('/', express.static(path.join(__dirname, 'angular')));
