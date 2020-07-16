@@ -8,7 +8,6 @@ const sequelize = require('./server/utils/database');
 const port = process.env.PORT || 8080;
 app.set('port', port);
 
-// Dev logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
