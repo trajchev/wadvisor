@@ -8,6 +8,8 @@ router.use(auth.restrictTo('admin'));
 
 router.get('/', teamCtrl.getTeams);
 router.get('/:id', teamCtrl.getTeam);
-router.patch('/:id', teamCtrl.uploadTeamLogo, teamCtrl.resezeTeamPhoto, teamCtrl.updateTeam);
+router.patch('/:id', teamCtrl.uploadTeamLogo,
+//  teamCtrl.resezeTeamPhoto,
+teamCtrl.updateTeam);
 
 module.exports = router;

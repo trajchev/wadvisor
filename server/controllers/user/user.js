@@ -1,5 +1,5 @@
 const { User } = require("../../models");
-const { read, update, remove, email, resize, upload } = require('../../services');
+const { read, update, remove, email, upload } = require('../../services');
 
 const uploadUserPhoto = upload.single('photo');
 const updateUser = update.update(User);
@@ -14,7 +14,7 @@ const getMe = (req, res, next) => {
 const emailUsers = email.sendMail(User);
 const deleteUser = remove.remove(User);
 const deleteMe = remove.removeUser(User);
-const resizeUserPhoto = resize.resizeUserPhoto();
+// const resizeUserPhoto = resize.resizeUserPhoto();
 
 module.exports = {
   uploadUserPhoto,
@@ -26,5 +26,5 @@ module.exports = {
   deleteUser,
   deleteMe,
   emailUsers,
-  resizeUserPhoto
+  // resizeUserPhoto
 };
