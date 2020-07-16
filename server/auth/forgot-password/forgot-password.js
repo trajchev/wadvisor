@@ -1,6 +1,6 @@
 const catchAsync = require('../../utils/catch-async');
 const BAError = require('../../utils/BAError');
-// const Email = require('../../utils/Email');
+const Email = require('../../utils/Email');
 const { User } = require('../../models');
 
 const forgotPassword = catchAsync(async (req, res, next) => {
@@ -21,7 +21,7 @@ const forgotPassword = catchAsync(async (req, res, next) => {
 
     try {
 
-        // await new Email(user, resetURL).sendPasswordReset();
+        await new Email(user, resetURL).sendPasswordReset();
 
         res.status(200).json({
             status: 'success',

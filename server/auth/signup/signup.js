@@ -1,7 +1,7 @@
 const { Op } = require("sequelize");
 const catchAsync = require('../../utils/catch-async');
 const { User } = require('../../models');
-// const Email = require('../../utils/Email');
+const Email = require('../../utils/Email');
 const createSendToken = require('../utils/create-send-token');
 
 const signup = catchAsync(async (req, res, next) => {
@@ -29,10 +29,10 @@ const signup = catchAsync(async (req, res, next) => {
     };
 
     // The link to the user profile
-    // const url = `${process.env.BASE_URL}me/${user.userConfirmToken}`;
+    const url = `${process.env.BASE_URL}me/${user.userConfirmToken}`;
 
     // Send the welcome email
-    // await new Email(user, url).sendWelcome();
+    await new Email(user, url).sendWelcome();
 
     // Gen&Send token to user to authenticate
     createSendToken(user, 200, req, res);
