@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { user, league, match, site, page, team, faq, ticket } = require('./routes');
+// const { user, league, match, site, page, team, faq, ticket } = require('./routes');
 const BAError = require('./utils/BAError');
 
 const app = express();
@@ -22,14 +22,14 @@ app.use((req, res, next) => {
 });
 
 // 2. ROUTES
-app.use('/api/v1/users', user);
-app.use('/api/v1/leagues', league);
-app.use('/api/v1/matches', match);
-app.use('/api/v1/sites', site);
-app.use('/api/v1/pages', page)
-app.use('/api/v1/teams', team);
-app.use('/api/v1/faq', faq);
-app.use('/api/v1/tickets', ticket);
+// app.use('/api/v1/users', user);
+// app.use('/api/v1/leagues', league);
+// app.use('/api/v1/matches', match);
+// app.use('/api/v1/sites', site);
+// app.use('/api/v1/pages', page)
+// app.use('/api/v1/teams', team);
+// app.use('/api/v1/faq', faq);
+// app.use('/api/v1/tickets', ticket);
 
 app.use('/', express.static(path.join(__dirname, 'angular')));
 app.use('/', (req, res, next) => {
