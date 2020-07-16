@@ -19,9 +19,7 @@ router.get("/refresh-token", userCtrl.getMe, auth.refreshToken);
 
 router.use(auth.restrictTo('admin', 'pro', 'beginner'));
 
-router.patch("/me/update", userCtrl.uploadUserPhoto
-// userCtrl.resizeUserPhoto
-, userCtrl.updateMe);
+router.patch("/me/update", userCtrl.uploadUserPhoto, userCtrl.resizeUserPhoto, userCtrl.updateMe);
 router.patch("/me/updatePassword", auth.updatePassword);
 router.delete("/me/delete", userCtrl.deleteMe);
 
