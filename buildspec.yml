@@ -10,6 +10,7 @@ phases:
   pre_build:
     commands:
       - "echo \"pre build phase\""
+      - "npm install sharp -n"
   build:
     commands:
       - "ng build --prod"
