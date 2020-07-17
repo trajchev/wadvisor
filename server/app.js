@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const xss = require('xss-clean');
 const hpp = require('hpp');
@@ -10,6 +11,13 @@ const { faq, user, league, match, site, page, team, ticket } = require('./routes
 
 const app = express();
 
+// Limit requests from same IP
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests from this IP, please try again in an hour!'
+});
+app.use('/api', limiter);
 
 // Body parser and cookie parser
 app.use(bodyParser.json());
