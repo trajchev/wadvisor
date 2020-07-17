@@ -17,9 +17,8 @@ const sequelize = new Sequelize(
             idle: 10000
         },
         ssl: 'Amazon RDS',
-        language: 'en'
-        // disable logging
-        // logging: false
+        language: 'en',
+        logging: false
     }
 );
 
