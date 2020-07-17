@@ -1,9 +1,22 @@
 const path = require('path');
 const express = require('express');
+const hpp = require('hpp');
 
 const { faq, user, league, match, site, page, team, ticket } = require('./routes');
 
 const app = express();
+
+// Prevent parameter pollution
+app.use(hpp({whitelist: ['token', 'page', 'id', 'league', 'matchId', 'group']}))
+app.use(compression());
+
+// Set up headers for allowing requests from API CONSUMER (me :) )
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  next();
+});
 
 // Routes
 app.use('/api/v1/users', user);
