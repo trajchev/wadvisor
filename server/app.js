@@ -8,7 +8,7 @@ const hpp = require('hpp');
 const helmet = require('helmet');
 const cors = require('cors');
 const compression = require('compression');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 const { faq, user, league, match, site, page, team, ticket } = require('./routes');
 const BAError = require('./utils/BAError');
@@ -24,9 +24,9 @@ app.options('*', cors());
 app.use(helmet());
 
 // Dev logging
-if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'));
-}
+// if (process.env.NODE_ENV === 'development') {
+//     app.use(morgan('dev'));
+// }
 
 // Limit requests from same IP
 const limiter = rateLimit({
