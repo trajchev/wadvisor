@@ -5,11 +5,28 @@ const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const helmet = require('helmet');
+const cors = require('cors');
 const compression = require('compression');
+const morgan = require('morgan');
 
 const { faq, user, league, match, site, page, team, ticket } = require('./routes');
+const BAError = require('./utils/BAError');
 
 const app = express();
+app.enable('trust proxy');
+
+// Implement CORS
+app.use(cors());
+app.options('*', cors());
+
+// Use helmet for setting basic security headers
+app.use(helmet());
+
+// Dev logging
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+}
 
 // Limit requests from same IP
 const limiter = rateLimit({
