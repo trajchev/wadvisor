@@ -5,7 +5,8 @@ phases:
     runtime-versions:
       nodejs: 12
     commands:
-      - "sudo npm install -n"
+      - "npm install"
+      - "sudo npm install --save sharp -n"
       - "npm install -g @angular/cli"
   pre_build:
     commands:
