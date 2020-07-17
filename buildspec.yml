@@ -6,7 +6,6 @@ phases:
       nodejs: 12
     commands:
       - "npm install"
-      - "sudo npm install --save sharp -n"
       - "npm install -g @angular/cli"
   pre_build:
     commands:
