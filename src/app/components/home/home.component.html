@@ -1,0 +1,14 @@
+<div id="ba-splash">
+  <div class="overlay-black"></div>
+  <div *ngIf="stats" class="content w3-center">
+      <h6 class="w3-left w3-left-align w3-animate-left"><span class="highlight-gold">{{stats.sports}}</span>+ Leagues</h6>
+      <h6 class="w3-right w3-right-align w3-animate-right"><span class="highlight-gold">{{stats.sports * stats.teams}}</span>+ Weekly Matches</h6>
+      <h6 class="w3-left w3-left-align w3-animate-left"><span class="highlight-gold">{{stats.bookmakers}}</span>+ Advising Sites</h6>
+      <h6 class="w3-right w3-right-align w3-animate-right">Only <span class="highlight-gold">1</span> Question:</h6>
+      <h1 class="w3-animate-zoom">Do You Want To Be A Winner?</h1>
+      <div class="action w3-animate-zoom">
+          <ba-splash-button text="Yes!" link="/auth/register"></ba-splash-button>
+      </div>
+      <h6 class="w3-padding-24">Already a winner? <a mat-button color="primary" [routerLink]="['/auth']">Login</a></h6>
+  </div>
+</div>

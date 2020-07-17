@@ -1,0 +1,8 @@
+<div class="ba-content">
+  <div class="w3-row">
+      <div *ngIf="noMatches" class="w3-panel w3-pale-yellow w3-border">
+          <h6>No active matches in this league</h6>
+      </div>
+      <ba-match *ngFor="let match of matches" [userRole]="userRole" [match]="match" [tickets]="tickets$ | async"></ba-match>
+  </div>
+</div>

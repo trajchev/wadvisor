@@ -1,0 +1,59 @@
+@import "../../../../variables";
+
+.ba {
+  &-ticket {
+    &-header {
+      position: relative;
+      text-align: center;
+      padding: 1rem;
+      h3 {
+        font-size: 1.2rem;
+        color: $primary_green;
+        margin: 0;
+      }
+      p {
+        font-size: .8rem;
+        font-style: italic;
+        color: $tint_gray;
+        margin: 0.5rem;
+      }
+      button {
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+      }
+    }
+
+    &-body {
+      // text-align: center;
+      p {
+        font-size: 0.8rem;
+        color: $tint_gray;
+        margin-top: 0;
+        strong {
+          color: #000000;
+        }
+      }
+    }
+
+    &-content {
+      padding: 0 0.5rem 0.5rem 0.5rem;
+      max-height: 80vh;
+      overflow: auto;
+    }
+
+    &-crumb {
+      position: relative;
+      padding: 0.5rem;
+      border: 1px solid $pale_gray;
+    }
+  }
+
+  &-remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    min-width: 2rem;
+  }
+}
