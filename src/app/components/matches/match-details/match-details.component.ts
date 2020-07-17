@@ -37,7 +37,10 @@ export class MatchDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new ticketActions.Load());
-    this.tickets$ = this.store.pipe(select(fromTicket.getTickets));
+
+    if (this.userRole === 'pro') {
+      this.tickets$ = this.store.pipe(select(fromTicket.getTickets));
+    }
     this.errorMessage$ = this.store.pipe(select(fromTicket.getError));
     const league = this.route.snapshot.params['league'];
     const matchId = +this.route.snapshot.params['matchId'];
