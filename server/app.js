@@ -1,11 +1,23 @@
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const xss = require('xss-clean');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const { faq, user, league, match, site, page, team, ticket } = require('./routes');
 
 const app = express();
 
+
+// Body parser and cookie parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+
+// Prevent XSS
+app.use(xss());
 // Prevent parameter pollution
 app.use(hpp({whitelist: ['token', 'page', 'id', 'league', 'matchId', 'group']}))
 app.use(compression());
