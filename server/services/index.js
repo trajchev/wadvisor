@@ -5,7 +5,8 @@ const remove = require('./remove/remove.service');
 const email = require('./email/email.service');
 const resize = require('./resize/resize.service');
 const upload = require('./upload/upload.service');
+const data = require('./data/data.service');
 
 module.exports = {
-  create, read, update, remove, email, resize, upload
+  create, read, update, remove, email, resize, upload, data
 }
