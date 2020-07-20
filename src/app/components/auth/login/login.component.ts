@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
-import { Subscription } from 'rxjs';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
@@ -10,11 +9,10 @@ import { AuthService } from '../../../auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
   isLoading: boolean = false;
   hide: boolean = true
-  private authStatusSub: Subscription;
   authCredentialsOK: boolean = true;
   loginForm: FormGroup;
 
@@ -31,10 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
-
-    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(authStatus => {
-      this.isLoading = authStatus;
-    });
   }
 
   onLogin() {
@@ -50,9 +44,4 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authCredentialsOK = this.authService.authCredentialsOK;
     this.loginForm.reset();
   }
-
-  ngOnDestroy() {
-    this.authStatusSub.unsubscribe();
-  }
-
 }
