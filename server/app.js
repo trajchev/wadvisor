@@ -53,6 +53,7 @@ app.use((req, res, next) => {
 // Get data
 // data.getSports();
 // data.getOdds('soccer_epl', 'au', 'h2h');
+// data.getOddsRecurring();
 
 // Routes
 app.use('/api/v1/users', user);

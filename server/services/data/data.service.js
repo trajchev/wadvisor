@@ -1,6 +1,8 @@
 const axios = require('axios');
+const schedule = require('node-schedule');
 const BAError = require('../../utils/BAError');
 const saveData = require('./save.service');
+const catchAsync = require('../../utils/catch-async');
 
 const { Group, Sport, Match, Site} = require('../../models');
 
@@ -84,6 +86,33 @@ const getOdds = (sport, region, type) => {
   }).catch(err => new BAError(err))
 }
 
+const getOddsRecurring = catchAsync( async () => {
+  const rule = new schedule.RecurrenceRule();
+  rule.dayOfWeek = [0, new schedule.Range(1, 4)];
+  rule.hour = 13;
+  rule.minute = 30;
+
+  const sports = await Sport.findAll({attributes: ['key']});
+  const regions = ['au', 'uk', 'us', 'eu'];
+  const markets = ['h2h', 'spreads', 'totals'];
+
+  const j = schedule.scheduleJob(rule, () => {
+    sports.forEach((sport, sidx) => {
+      setTimeout( async () => {
+        markets.forEach((market, midx) => {
+          setTimeout(async () => {
+            regions.forEach((region, ridx) => {
+              setTimeout(async () => {
+                getOdds(sport, region, market);
+              }, ridx * 3000)
+            })
+          }, midx * 13000);
+        })
+      }, sidx * 53000);
+    });
+  })
+});
+
 module.exports = {
-  getSports, getOdds
+  getSports, getOddsRecurring
 }
