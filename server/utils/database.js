@@ -18,7 +18,7 @@ const sequelize = new Sequelize(
         },
         ssl: 'Amazon RDS',
         language: 'en',
-        logging: false
+        // logging: false
     }
 );
 

@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const helmet = require('helmet');
 const cors = require('cors');
 const compression = require('compression');
+const { data } = require('./services');
 
 const { faq, user, league, match, site, page, team, ticket } = require('./routes');
 const BAError = require('./utils/BAError');
@@ -48,6 +49,11 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
   next();
 });
+
+// Get data
+// data.getSports();
+// data.getOdds('soccer_epl', 'au', 'h2h');
+// data.getOddsRecurring();
 
 // Routes
 app.use('/api/v1/users', user);
