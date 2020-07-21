@@ -100,7 +100,7 @@ const getOddsRecurring = catchAsync( async () => {
   const rule = new schedule.RecurrenceRule();
   rule.dayOfWeek = [1, 4];
   rule.hour = 16;
-  rule.minute = 0;
+  rule.minute = 36;
 
   const sports = await Sport.findAll({attributes: ['key']});
   const regions = ['au', 'uk', 'us', 'eu'];
