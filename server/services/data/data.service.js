@@ -98,9 +98,9 @@ const getSportsRecurring = catchAsync(async () => {
 
 const getOddsRecurring = catchAsync( async () => {
   const rule = new schedule.RecurrenceRule();
-  rule.dayOfWeek = [1, 4];
+  rule.dayOfWeek = new schedule.Range(0,6)
   rule.hour = 16;
-  rule.minute = 36;
+  rule.minute = 45;
 
   const sports = await Sport.findAll({attributes: ['key']});
   const regions = ['au', 'uk', 'us', 'eu'];
