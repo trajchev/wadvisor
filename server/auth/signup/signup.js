@@ -39,6 +39,7 @@ const signup = catchAsync(async (req, res, next) => {
 
   } else {
     createSendToken(null, 200, req, res);
+    throw new Error();
   }
 });
 

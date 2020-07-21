@@ -1,5 +1,6 @@
 const catchAsync = require('../../utils/catch-async');
 const BAError = require('../../utils/BAError');
+const Email = require('../../utils/Email');
 
 const sendMail = Model => catchAsync(async (req, res, next) => {
 

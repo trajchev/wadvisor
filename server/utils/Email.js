@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const pug = require('pug');
 const htmlToText = require('html-to-text');
+const AWS = require('aws-sdk');
 
 class Email {
 
@@ -18,6 +19,12 @@ class Email {
         if (process.env.NODE_ENV === 'production') {
             // Sendgrid
             return nodemailer.createTransport({
+              // SES: new AWS.SES({
+              //   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+              //   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+              //   region: process.env.SMTP_REGION,
+              //   apiVersion: '2010-12-01'
+              // })
                 service: 'Sendgrid',
                 auth: {
                     user: process.env.SENDGRID_USERNAME,
@@ -27,6 +34,13 @@ class Email {
         }
 
         return nodemailer.createTransport({
+          // SES: new AWS.SES({
+          //   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+          //   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+          //   region: process.env.SMTP_REGION,
+          //   apiVersion: '2010-12-01'
+          // })
+
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
             auth: {
