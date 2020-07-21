@@ -98,7 +98,7 @@ const getSportsRecurring = catchAsync(async () => {
 
 const getOddsRecurring = catchAsync( async () => {
   const rule = new schedule.RecurrenceRule();
-  rule.dayOfWeek = [0, 4];
+  rule.dayOfWeek = [1, 4];
   rule.hour = 16;
   rule.minute = 0;
 
