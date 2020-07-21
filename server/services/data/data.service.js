@@ -86,11 +86,21 @@ const getOdds = (sport, region, type) => {
   }).catch(err => new BAError(err))
 }
 
+const getSportsRecurring = catchAsync(async () => {
+  const rule = new schedule.RecurrenceRule();
+  rule.month = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  rule.hour = 0;
+  rule.minute = 0;
+
+  const s = schedule.scheduleJob(rule, getSports);
+
+});
+
 const getOddsRecurring = catchAsync( async () => {
   const rule = new schedule.RecurrenceRule();
-  rule.dayOfWeek = [0, new schedule.Range(1, 4)];
-  rule.hour = 13;
-  rule.minute = 30;
+  rule.dayOfWeek = [0, 4];
+  rule.hour = 16;
+  rule.minute = 0;
 
   const sports = await Sport.findAll({attributes: ['key']});
   const regions = ['au', 'uk', 'us', 'eu'];
@@ -114,5 +124,5 @@ const getOddsRecurring = catchAsync( async () => {
 });
 
 module.exports = {
-  getSports, getOddsRecurring
+  getSportsRecurring, getOddsRecurring
 }
