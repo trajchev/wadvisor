@@ -91,16 +91,14 @@ const getSportsRecurring = catchAsync(async () => {
   rule.month = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   rule.hour = 0;
   rule.minute = 0;
-
   const s = schedule.scheduleJob(rule, getSports);
-
 });
 
 const getOddsRecurring = catchAsync( async () => {
   const rule = new schedule.RecurrenceRule();
-  rule.dayOfWeek = new schedule.Range(0,6)
-  rule.hour = 16;
-  rule.minute = 45;
+  rule.dayOfWeek = [2, 5];
+  rule.hour = 10;
+  rule.minute = 10;
 
   const sports = await Sport.findAll({attributes: ['key']});
   const regions = ['au', 'uk', 'us', 'eu'];
@@ -113,7 +111,8 @@ const getOddsRecurring = catchAsync( async () => {
           setTimeout(async () => {
             regions.forEach((region, ridx) => {
               setTimeout(async () => {
-                getOdds(sport, region, market);
+                console.log(`Calling ODDS API with ${sport.key} and ${region} and ${market}`)
+                getOdds(sport.key, region, market);
               }, ridx * 3000)
             })
           }, midx * 13000);
