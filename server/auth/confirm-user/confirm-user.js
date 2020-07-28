@@ -3,7 +3,6 @@ const { User } = require('../../models');
 const createSendToken = require('../utils/create-send-token');
 
 const confirmUser = catchAsync(async (req, res, next) => {
-
     // 1. Get user based on token
     const user = await User.findOne({where: {id: req.user.id, userConfirmToken: req.params.confirmationToken}});
 
