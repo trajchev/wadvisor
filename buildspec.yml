@@ -16,3 +16,9 @@ phases:
   post_build:
     commands:
       - "echo \"post build phase\""
+
+artifacts:
+  type: zip
+  base-directory: server/angular/
+  files:
+    - "**/*"
