@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   stats: HomeModel = {
     sports: 30,
-    bookmakers: 12,
+    bookmakers: 20,
     teams: 600
   };
 

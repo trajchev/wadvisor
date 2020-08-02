@@ -4,7 +4,8 @@ const { userCtrl } = require("../controllers");
 const router = express.Router();
 
 
-router.post("/signup/:recruiter?", auth.signup);
+router.post("/signup", auth.signup);
+router.post("/signup/:recruiter", auth.signup);
 router.post("/login", auth.login);
 router.get("/logout", auth.logout);
 router.post("/forgotPassword", auth.forgotPassword);

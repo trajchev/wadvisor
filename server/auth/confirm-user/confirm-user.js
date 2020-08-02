@@ -19,9 +19,12 @@ const confirmUser = catchAsync(async (req, res, next) => {
     }
 
     if (user.recruiter_id) {
-        const referal = await User.findOne({where: {id: user.recruiter_id}});
-        referal.recruits++;
-        await referal.save();
+      const referal = await User.findOne({where: {id: user.recruiter_id}});
+      referal.recruits++;
+      if (referal.recruits === 50) {
+        referal.role = 'pro';
+      }
+      await referal.save();
     }
 
     user.userConfirmToken = null;

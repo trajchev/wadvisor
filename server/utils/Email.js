@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 const pug = require('pug');
 const htmlToText = require('html-to-text');
-const AWS = require('aws-sdk');
 
 class Email {
 
@@ -63,15 +62,11 @@ class Email {
     }
 
     async sendWelcome() {
-        await this.send('welcome', 'Welcome to the Betting Advisor family');
+        await this.send('welcome', 'Welcome to the Win Advisor family');
     }
 
     async sendPasswordReset() {
         await this.send('passwordReset', 'Your password reset token (Act quickly)');
-    }
-
-    async sendAffiliate(sub) {
-        await this.send('affiliate', sub);
     }
 
     async sendAffiliate(sub) {

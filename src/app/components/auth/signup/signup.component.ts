@@ -54,7 +54,10 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(userName, email, password, passwordConfirm, recruiter);
     this.authCredentialsOK = this.authService.authCredentialsOK;
-    this.isLoading = false;
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1400);
   }
 
   onLoadInfo(slug: string): void {

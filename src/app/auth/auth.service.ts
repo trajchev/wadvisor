@@ -25,6 +25,7 @@ export class AuthService {
   // timer for the token refresh functionality
   private refreshTokenTimer: any;
   authCredentialsOK: boolean;
+  confirmOK: boolean;
   redirectUrl: string;
   private authStatusListener = new Subject<boolean>();
 
@@ -56,7 +57,7 @@ export class AuthService {
   // signup
   signup(username: string, email: string, password: string, passwordConfirm: string, recruiter?: string) {
     if ( password !== passwordConfirm ) { return; }
-    const authData = { username, email, password, passwordConfirm };
+    const authData = { username, email, password, passwordConfirm};
     return this.http.post<AuthResponseData>(`${BACKEND_URL}users/signup/${recruiter}`, authData).subscribe(
       (response: AuthResponseData) => {
         this.tokenHandler(response)
@@ -100,11 +101,11 @@ export class AuthService {
 
   confirmUser(confirmationToken: string) {
     return this.http.get(`${BACKEND_URL}users/confirm-user/${confirmationToken}`)
-      .subscribe((res: any) => {
+      .subscribe((res: AuthResponseData) => {
         if (res.status === 'success') {
-          this.confirmUserLevel(res.level)
+          this.confirmUserLevel(res.level);
+          this.confirmOK = true;
         }
-        this.router.navigate(['/me']);
       })
   }
 
@@ -129,7 +130,7 @@ export class AuthService {
     this.authStatusListener.next(false);
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/']);
   }
 
   refreshToken() {

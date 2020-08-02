@@ -10,6 +10,7 @@ import { AuthService } from '../../../auth/auth.service';
 export class ConfirmUserComponent implements OnInit {
 
   token: string = null;
+  confirmOK: boolean;
 
   constructor(
     private authService: AuthService,
@@ -21,6 +22,10 @@ export class ConfirmUserComponent implements OnInit {
   ngOnInit(): void {
 
     this.authService.confirmUser(this.token);
+
+    setTimeout(() => {
+      this.confirmOK = this.authService.confirmOK;
+    }, 1400)
 
   }
 

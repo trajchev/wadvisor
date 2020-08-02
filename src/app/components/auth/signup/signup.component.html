@@ -2,7 +2,7 @@
   <div class="auth-wrapper">
       <div class="w3-card w3-padding-16">
           <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
-          <form *ngIf="!isLoading" [formGroup]="signupForm" (ngSubmit)="onRegister()">
+          <form [formGroup]="signupForm" (ngSubmit)="onRegister()" *ngIf="!isLoading">
               <header class="w3-container w3-center">Create your account</header>
               <div class="w3-container">
                   <mat-form-field class="w3-block">
@@ -27,7 +27,7 @@
                       <mat-icon svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hideConfirm = !hideConfirm"></mat-icon>
                       <mat-error>Passwords do not match</mat-error>
                   </mat-form-field>
-                  <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">Username and/or email already taken</div>
+                  <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">User or/and email already taken</div>
                   <div class="form-info">
                       By signing up you agree to the <a (click)="onLoadInfo('tos')">TOS</a>
                   </div>
