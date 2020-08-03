@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     if (routerEvent instanceof NavigationEnd) {
       if (
         routerEvent.url === '/'
+        || /^\/?/.test(routerEvent.url)
         || /^\/auth/.test(routerEvent.url)
       ) {
         this.isAuthenticated = false
