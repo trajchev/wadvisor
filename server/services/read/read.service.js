@@ -21,13 +21,12 @@ const read = Model => catchAsync(async (req, res, next) => {
 
 const readAll = Model => catchAsync(async (req, res, next) => {
 
-  let limit = 36, page = 1, offset, order;
+  let limit = 36, page = 1, offset, order = [['commence_time', 'DESC']];
 
   if (req.params.page) {
       limit = +req.params.perPage;
       page = +req.params.page;
       offset = (page - 1) * limit;
-      order = [['commence_time', 'ASC']];
   }
 
   // To allow for nested GET reviews on ticket
@@ -38,7 +37,7 @@ const readAll = Model => catchAsync(async (req, res, next) => {
   if (req.params.league) { filter.sport_key = req.params.league };
 
   const occurences = await Model.count({where: filter});
-  const docs = await Model.findAll({limit, offset, where: filter, order: order});
+  const docs = await Model.findAll({limit, offset, where: filter, order});
 
   if (!docs) {
       res.status(404).json({
