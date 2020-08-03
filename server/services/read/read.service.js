@@ -21,13 +21,13 @@ const read = Model => catchAsync(async (req, res, next) => {
 
 const readAll = Model => catchAsync(async (req, res, next) => {
 
-  let limit, page = 1, offset, order;
+  let limit = 36, page = 1, offset, order;
 
   if (req.params.page) {
       limit = +req.params.perPage;
       page = +req.params.page;
       offset = (page - 1) * limit;
-      order = [['commence_time', 'DESC']];
+      order = [['commence_time', 'ASC']];
   }
 
   // To allow for nested GET reviews on ticket
