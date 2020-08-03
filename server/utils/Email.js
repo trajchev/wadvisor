@@ -9,7 +9,7 @@ class Email {
         this.to = user.email;
         this.username = user.username;
         this.url = url;
-        this.from = `Ivan <${process.env.EMAIL_FROM}>`;
+        this.from = `Win Advisor Team <${process.env.EMAIL_FROM}>`;
 
     }
 

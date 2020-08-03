@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'ba-confirm-user',
@@ -11,6 +12,7 @@ export class ConfirmUserComponent implements OnInit {
 
   token: string = null;
   confirmOK: boolean;
+  userUrl: string = `${environment.BASE_URL}/me`;
 
   constructor(
     private authService: AuthService,
