@@ -26,13 +26,15 @@ export class AppComponent implements OnInit {
     // If we are on home page or auth page user is not authenticated
     if (routerEvent instanceof NavigationEnd) {
       if (
-        routerEvent.url === '/'
-        || /^\/?/.test(routerEvent.url)
-        || /^\/auth/.test(routerEvent.url)
+        /^\/me/.test(routerEvent.url)
+        || /^\/me/.test(routerEvent.url)
+        || /^\/admin/.test(routerEvent.url)
+        || /^\/matches/.test(routerEvent.url)
+        || /^\/tickets/.test(routerEvent.url)
       ) {
-        this.isAuthenticated = false
+        this.isAuthenticated = true
       } else {
-        this.isAuthenticated = true;
+        this.isAuthenticated = false;
       }
     }
   }
