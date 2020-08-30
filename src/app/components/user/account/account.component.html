@@ -27,8 +27,8 @@
       <div class="w3-col l8 m12 w3-container">
           <div class="w3-card w3-padding user-stats">
               <h3>User Stats</h3>
-              <div *ngIf="user.role=='unconfirmed'" class="w3-panel w3-pale-yellow w3-border">
-                  <h6 class="w3-padding">Please activate your account by clicking on the link sent to the email address you provided during sign up. Until then, you can only see the About, ToS and App Usage pages</h6>
+              <div *ngIf="user.role=='unconfirmed'" class="w3-panel w3-pale-red w3-border">
+                  <h6 class="w3-padding">Please activate your account by clicking on the link sent to the email address you provided during sign up. Until then, you can only see the About, ToS and App Usage pages. Hurry up, the link will expire after 24 hours</h6>
               </div>
               <ul class="w3-ul" *ngIf="user.role!='unconfirmed'">
                   <li class="w3-panel w3-light-gray w3-leftbar w3-border-green w3-animate-left">

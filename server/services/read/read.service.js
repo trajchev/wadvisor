@@ -36,6 +36,8 @@ const readAll = Model => catchAsync(async (req, res, next) => {
   if (req.params.group) { filter.group = req.params.group };
   if (req.params.league) { filter.sport_key = req.params.league };
 
+  // const {occurences, docs} = await Model.findAndCountAll({where: filter, limit, offset, order});
+
   const occurences = await Model.count({where: filter});
   const docs = await Model.findAll({limit, offset, where: filter, order});
 
@@ -88,6 +90,29 @@ const readAssociated = (Model, includedModels) => catchAsync( async(req, res, ne
   const docs = await Model.findOne({ where: { id: req.params.id },
       include: includedModels
   });
+
+  if (!docs) {
+      res.status(404).json({
+          status: 'failure',
+          msg: 'No Document found with that id'
+      });
+      return next(new BAError('No Document found with that id', 404));
+  }
+
+  res.status(200).json({
+      status: 'success',
+      data: docs
+  });
+
+});
+
+const readMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
+
+  let limit = 20, order = [['commence_time', 'DESC']];
+
+  const docs = await Model.findAll({limit, where: { sport_key: req.params.league },
+      include: includedModels
+  }, order);
 
   if (!docs) {
       res.status(404).json({
@@ -236,6 +261,7 @@ const readUsers = Model => catchAsync(async (req, res, next) => {
 
 module.exports = {
   read, readAll,
+  readMatches,
   readUser, readUsers,
   readAllSports, readBySlug,
   readAssociated,  readAssociatedPaginated,

@@ -1,4 +1,13 @@
 <div class="spreads-chart-wrapper">
-  <div class="spreads-chart"></div>
-  <p><small>* Betting odds shown. The lower the bar, the higher the chances of winning</small></p>
+  <div class="w3-row">
+    <div *ngFor="let spread of spreads" class="w3-col m3">
+      <div class="w3-card w3-padding">
+        <h3>{{spread.site.name}}</h3>
+        <p>{{home_team}} odds <span class="ba-right">{{spread.odds_home}}</span></p>
+        <p>{{away_team}} odds <span class="ba-right">{{spread.odds_away}}</span></p>
+        <p>{{home_team}} points <span class="ba-right">{{spread.points_home}}</span></p>
+        <p>{{away_team}} point <span class="ba-right">{{spread.points_away}}</span></p>
+      </div>
+    </div>
+  </div>
 </div>

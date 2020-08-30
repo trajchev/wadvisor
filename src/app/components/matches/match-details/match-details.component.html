@@ -1,6 +1,6 @@
 <div class="ba-content">
   <div class="w3-row" *ngIf="match">
-      <h1 class="w3-center">{{match.home_team}} <br /> <strong>VS</strong> <br />{{match.away_team}}</h1>
+      <h1 class="w3-center">{{match.home_team}} <strong> VS </strong> {{match.away_team}}</h1>
 
       <div class="w3-card details">
           <header>
@@ -26,17 +26,17 @@
           <mat-tab-group animationDuration="0ms" mat-stretch-tabs mat-align-tabs="end">
               <mat-tab label="H2H">
                   <ng-template matTabContent>
-                      <ba-h2h-chart [data]="match.h2hs"></ba-h2h-chart>
+                    <ba-h2h-chart [match]="match" [h2hs]="match.h2hs"></ba-h2h-chart>
                   </ng-template>
               </mat-tab>
               <mat-tab label="Spreads" [disabled]="userRole!=='pro'">
                   <ng-template matTabContent>
-                      <ba-spreads-chart [key]="match.sportKey" [id]="match.id"></ba-spreads-chart>
+                    <ba-spreads-chart home_team="match.home_team" away_team="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-spreads-chart>
                   </ng-template>
               </mat-tab>
               <mat-tab label="Totals" [disabled]="userRole!=='pro'">
                   <ng-template matTabContent>
-                      <ba-totals-chart [key]="match.sportKey" [id]="match.id"></ba-totals-chart>
+                    <ba-totals-chart home_team="match.home_team" away_team="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-totals-chart>
                   </ng-template>
               </mat-tab>
           </mat-tab-group>

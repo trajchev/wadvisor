@@ -11,10 +11,29 @@
             text-align: center;
             padding: 1rem;
             h3 {
+                position: relative;
                 font-family: 'Noto', sans-serif;
                 font-size: 1rem;
                 color: $primary_green;
+                width: 100%;
                 margin: 0;
+
+                span {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  font-size: .6rem;
+                  line-height: 1.4rem;
+                  font-weight: 700;
+                }
+
+                .win {
+                  color: $primary_green;
+                }
+
+                .loss {
+                  color: red;
+                }
             }
             p {
                 font-style: italic;

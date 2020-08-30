@@ -1,9 +1,9 @@
 <div class="ba-container w3-col l3 m6 s12 w3-animate-zoom">
   <div class="ba-match">
       <header class="ba-match-header">
-          <h3>{{match.home_team}}</h3>
+          <h3>{{match.home_team}}<span class="{{avg_home > avg_away ? 'loss' : 'win'}}">{{avg_home > avg_away ? 'Loss' : 'Win'}}</span></h3>
           <p>VS</p>
-          <h3>{{match.away_team}}</h3>
+          <h3>{{match.away_team}}<span class="{{avg_home > avg_away ? 'win' : 'loss'}}">{{avg_home > avg_away ? 'Win' : 'Loss'}}</span></h3>
       </header>
       <div class="ba-match-body">
           <p>Match starts @ <strong>{{match.commence_time | msToDate}}</strong></p>
@@ -21,7 +21,7 @@
               <a mat-menu-item (click)="onCreateTicket()">Create New Ticket</a>
               <a mat-menu-item *ngFor="let ticket of tickets" (click)="onSaveBetMatch(ticket.id, match.id)">{{ticket.title}}</a>
           </mat-menu>
-          <a mat-button class="ba-right" title="Match details" [routerLink]="[match.id]" color="primary"><mat-icon>view_list</mat-icon> </a>
+          <a mat-button class="ba-right" title="Details" [routerLink]="[match.id]" color="primary"><mat-icon>view_list</mat-icon> </a>
       </footer>
   </div>
 </div>
