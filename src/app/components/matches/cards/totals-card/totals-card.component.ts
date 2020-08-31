@@ -1,14 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatchService } from '../../match.service';
-import { TotalsModel } from 'src/app/models/totals.model';
-import { MatchModel } from 'src/app/models/match.model';
+import { TotalsModel } from '../../../../models/totals.model';
 
 @Component({
-  selector: 'ba-totals-chart',
-  templateUrl: './totals-chart.component.html',
-  styleUrls: ['./totals-chart.component.scss']
+  selector: 'ba-totals-card',
+  templateUrl: './totals-card.component.html',
+  styleUrls: ['./totals-card.component.scss']
 })
-export class TotalsChartComponent implements OnInit {
+export class TotalsCardComponent implements OnInit {
 
   @Input() id: number;
   @Input() key: string;
@@ -28,7 +27,6 @@ export class TotalsChartComponent implements OnInit {
   fetchTotals(): void {
     this.matchService.getTotals(this.key, this.id, 'totals').subscribe(totals => {
       this.totals = totals;
-      console.log(totals);
     });
   }
 

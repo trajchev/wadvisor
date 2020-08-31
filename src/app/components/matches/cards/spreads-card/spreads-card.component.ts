@@ -1,15 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { MatchService } from '../../match.service';
-import { MatchModel } from 'src/app/models/match.model';
-import { SpreadsModel } from 'src/app/models/spreads.model';
+import { SpreadsModel } from '../../../../models/spreads.model';
 
 @Component({
-  selector: 'ba-spreads-chart',
-  templateUrl: './spreads-chart.component.html',
-  styleUrls: ['./spreads-chart.component.scss']
+  selector: 'ba-spreads-card',
+  templateUrl: './spreads-card.component.html',
+  styleUrls: ['./spreads-card.component.scss']
 })
-export class SpreadsChartComponent implements OnInit {
+export class SpreadsCardComponent implements OnInit {
 
   @Input() id: number;
   @Input() key: string;
@@ -29,7 +27,6 @@ export class SpreadsChartComponent implements OnInit {
   fetchSpreads(): void {
     this.matchService.getSpreads(this.key, this.id, 'spreads').subscribe(spreads => {
       this.spreads = spreads;
-      console.log('Spreads ', spreads);
     });
   }
 

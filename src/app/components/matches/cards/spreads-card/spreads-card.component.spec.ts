@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { H2hChartComponent } from './h2h-chart.component';
+// import { SpreadsCardComponent } from './spreads-card.component';
 
-// describe('H2hChartComponent', () => {
-//   let component: H2hChartComponent;
-//   let fixture: ComponentFixture<H2hChartComponent>;
+// describe('SpreadsCardComponent', () => {
+//   let component: SpreadsCardComponent;
+//   let fixture: ComponentFixture<SpreadsCardComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ H2hChartComponent ]
+//       declarations: [ SpreadsCardComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(H2hChartComponent);
+//     fixture = TestBed.createComponent(SpreadsCardComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

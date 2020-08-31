@@ -1,0 +1,23 @@
+@import '../../../../../variables';
+
+.w3 {
+  &-card {
+    h3 {
+      text-align: center;
+      color: $pale_green;
+    }
+
+    p {
+      color: $tint_gray;
+      .ba-right {
+        color: $primary_gray;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .ba-left {
+        color: $primary_green;
+      }
+    }
+  }
+}

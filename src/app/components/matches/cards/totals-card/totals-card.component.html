@@ -1,0 +1,13 @@
+<div class="totals-card-wrapper">
+  <div class="w3-row">
+    <div *ngFor="let total of totals" class="w3-col m3">
+      <div class="w3-card w3-padding">
+        <p><span class="ba-left">{{home_team}}</span> odds <span class="ba-right">{{total.odds_home}}</span></p>
+        <p><span class="ba-left">{{away_team}}</span> odds<span class="ba-right">{{total.odds_away}}</span></p>
+        <p><span class="ba-left">{{home_team}}</span> points <span class="ba-right">{{total.points_home}}</span></p>
+        <p><span class="ba-left">{{away_team}}</span> points<span class="ba-right">{{total.points_away}}</span></p>
+        <h3>{{total.site.name}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

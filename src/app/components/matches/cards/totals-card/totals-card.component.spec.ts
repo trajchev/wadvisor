@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { TotalsChartComponent } from './totals-chart.component';
+// import { TotalsCardComponent } from './totals-card.component';
 
-// describe('TotalsChartComponent', () => {
-//   let component: TotalsChartComponent;
-//   let fixture: ComponentFixture<TotalsChartComponent>;
+// describe('TotalsCardComponent', () => {
+//   let component: TotalsCardComponent;
+//   let fixture: ComponentFixture<TotalsCardComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ TotalsChartComponent ]
+//       declarations: [ TotalsCardComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(TotalsChartComponent);
+//     fixture = TestBed.createComponent(TotalsCardComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

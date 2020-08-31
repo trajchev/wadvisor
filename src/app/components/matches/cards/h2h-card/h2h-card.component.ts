@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { H2HModel } from '../../../../models/h2h.model';
-import { MatchModel } from 'src/app/models/match.model';
+import { MatchModel } from '../../../../models/match.model';
 
 @Component({
-  selector: 'ba-h2h-chart',
-  templateUrl: './h2h-chart.component.html',
-  styleUrls: ['./h2h-chart.component.scss']
+  selector: 'ba-h2h-card',
+  templateUrl: './h2h-card.component.html',
+  styleUrls: ['./h2h-card.component.scss']
 })
-export class H2hChartComponent implements OnInit {
+export class H2hCardComponent implements OnInit {
 
   @Input() h2hs: H2HModel[];
   @Input() match: MatchModel;

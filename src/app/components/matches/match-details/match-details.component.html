@@ -26,17 +26,17 @@
           <mat-tab-group animationDuration="0ms" mat-stretch-tabs mat-align-tabs="end">
               <mat-tab label="H2H">
                   <ng-template matTabContent>
-                    <ba-h2h-chart [match]="match" [h2hs]="match.h2hs"></ba-h2h-chart>
+                    <ba-h2h-card [match]="match" [h2hs]="match.h2hs"></ba-h2h-card>
                   </ng-template>
               </mat-tab>
               <mat-tab label="Spreads" [disabled]="userRole!=='pro'">
                   <ng-template matTabContent>
-                    <ba-spreads-chart home_team="match.home_team" away_team="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-spreads-chart>
+                    <ba-spreads-card [home_team]="match.home_team" [away_team]="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-spreads-card>
                   </ng-template>
               </mat-tab>
               <mat-tab label="Totals" [disabled]="userRole!=='pro'">
                   <ng-template matTabContent>
-                    <ba-totals-chart home_team="match.home_team" away_team="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-totals-chart>
+                    <ba-totals-card [home_team]="match.home_team" [away_team]="match.away_team" [id]="match.id" [key]="match.sport_key"></ba-totals-card>
                   </ng-template>
               </mat-tab>
           </mat-tab-group>
