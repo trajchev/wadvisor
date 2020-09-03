@@ -20,6 +20,9 @@ Site.init({
         allowNull: false,
         unique: true
     },
+    logo: {
+      type: Sequilize.STRING
+    },
     region: {
         type: Sequilize.STRING,
         defaultValue: 'uk'
