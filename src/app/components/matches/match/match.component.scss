@@ -5,7 +5,6 @@
         padding: .5rem;
     }
     &-match {
-        // border: 1px solid $pale_green;
         box-shadow: 0 0 1rem 1px $pale_green;
         &-header {
             text-align: center;
@@ -13,7 +12,7 @@
             h3 {
                 position: relative;
                 font-family: 'Noto', sans-serif;
-                font-size: 1rem;
+                font-size: .8rem;
                 color: $primary_green;
                 width: 100%;
                 margin: 0;
@@ -46,7 +45,7 @@
         &-body {
             text-align: center;
             p {
-                font-size: .8rem;
+                font-size: .6rem;
                 color: $tint_gray;
                 margin-top: 0;
                 strong {

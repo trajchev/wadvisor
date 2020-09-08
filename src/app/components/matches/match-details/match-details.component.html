@@ -12,7 +12,7 @@
                   color="primary"
                   [matMenuTriggerFor]="addMenu"
                   aria-label="Betting Advisor Info"
-                  ><mat-icon>add_box</mat-icon></button>
+                  ><mat-icon>add</mat-icon></button>
                   <mat-menu #addMenu="matMenu">
                       <a mat-menu-item (click)="onCreateTicket()">Create a ticket</a>
                       <a mat-menu-item *ngFor="let ticket of tickets$ | async" (click)="onSaveBetMatch(ticket.id, match.id)">{{ticket.title}}</a>
