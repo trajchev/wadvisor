@@ -108,7 +108,7 @@ const readAssociated = (Model, includedModels) => catchAsync( async(req, res, ne
 
 const readMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
 
-  let limit = 20, order = [['commence_time', 'DESC']];
+  let limit = 20, order = [['commence_time', 'ASC']];
 
   const docs = await Model.findAll({limit, where: { sport_key: req.params.league },
       include: includedModels
