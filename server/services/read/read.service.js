@@ -39,7 +39,7 @@ const readAll = Model => catchAsync(async (req, res, next) => {
   // const {occurences, docs} = await Model.findAndCountAll({where: filter, limit, offset, order});
 
   const occurences = await Model.count({where: filter});
-  const docs = await Model.findAll({limit, offset, where: filter, order});
+  const docs = await Model.findAll({order, limit, offset, where: filter});
 
   if (!docs) {
       res.status(404).json({
@@ -108,11 +108,11 @@ const readAssociated = (Model, includedModels) => catchAsync( async(req, res, ne
 
 const readMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
 
-  let limit = 20, order = [['commence_time', 'ASC']];
+  let limit = 20, order = [['commence_time', 'DESC']];
 
-  const docs = await Model.findAll({limit, where: { sport_key: req.params.league },
+  const docs = await Model.findAll({order, limit, where: { sport_key: req.params.league },
       include: includedModels
-  }, order);
+  });
 
   if (!docs) {
       res.status(404).json({
