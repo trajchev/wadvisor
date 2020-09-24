@@ -1,0 +1,31 @@
+<div class="ba-content">
+  <div class="w3-card w3-padding-16">
+    <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
+    <form [formGroup]="createPageForm" (ngSubmit)="onCreatePage()" *ngIf="!isLoading">
+      <header class="w3-container w3-center"><h2>Create your page</h2></header>
+      <div class="w3-container">
+        <mat-form-field class="w3-block">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Title">
+          <mat-error>Please provide a title</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w3-block">
+          <mat-label>Slug</mat-label>
+          <input matInput formControlName="slug" placeholder="Slug">
+          <mat-error>Please provide a slug</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w3-block">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="Description">
+          <mat-error>Please provide a description</mat-error>
+        </mat-form-field>
+        <angular-editor placeholder="Please provide the content for the page" formControlName="content"></angular-editor>
+      </div>
+      <footer class="w3-container">
+        <button mat-stroked-button type="submit" color="primary" class="w3-right" [disabled]="!createPageForm.valid" >Create Page</button>
+    </footer>
+    </form>
+
+  </div>
+
+</div>

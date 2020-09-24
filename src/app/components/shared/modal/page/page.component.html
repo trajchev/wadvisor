@@ -6,7 +6,7 @@
           <h4>{{page.description}}</h4>
       </header>
       <div class="ba-page-body">
-          <div class="ba-page-content" *ngIf="!isPagePricing" [innerHTML]="page.content"></div>
+          <div class="ba-page-content" *ngIf="formatedPage && !isPagePricing" [innerHTML]="formatedPage"></div>
           <table *ngIf="isPagePricing" class="w3-table-all w3-centered w3-hoverable">
               <thead>
                 <tr>

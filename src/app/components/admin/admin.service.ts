@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from "../../../environments/environment";
 import { UserModel } from '../../models/user.model';
+import { PageModel } from 'src/app/models/page.model';
 
 @Injectable({
   providedIn: "root",
@@ -25,6 +26,10 @@ export class AdminService {
     .pipe(
       map((res: {status: string, msg: string}) => res)
     )
+  }
+
+  createPage(title: string, slug: string, description: string, content: string): Observable<{status: string, data: PageModel}> {
+    return this.http.post<{status: string, data: PageModel}>(`${environment.ENDPOINT_API}pages`, {slug, title, description, content})
   }
 
 }
