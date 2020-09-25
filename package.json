@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "npm run clearDevPort && nodemon server.js",
+    "clearDevPort": "npx kill-port 3000",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -31,19 +31,19 @@
                   <h6 class="w3-padding">Please activate your account by clicking on the link sent to the email address you provided during sign up. Until then, you can only see the About and ToS pages. Hurry up, the link will expire after 24 hours</h6>
               </div>
               <ul class="w3-ul" *ngIf="user.role!='unconfirmed'">
-                  <li class="w3-panel w3-light-gray w3-leftbar w3-border-green w3-animate-left">
-                      <span class="w3-tag w3-pale-green w3-padding">{{user.recruits || 0}}</span>users signed up with your link
-                  </li>
-                  <li class="w3-panel w3-light-gray w3-leftbar w3-border-green w3-animate-right">
-                      <span class="w3-tag w3-pale-green w3-padding">Recruitment link:</span><code>{{ recruitmentLink + user.username }}</code>
-                      <mat-icon title="Copy link" (click)="copyText(recruitmentLink + user.username)">content_copy</mat-icon>
-                  </li>
-                  <li class="w3-panel w3-padding w3-pale-green w3-leftbar w3-border-green w3-animate-left">
-                      Share your Recruitment link with your friends so they can join and you get upgrade:
-                  </li>
-                  <li class="w3-panel w3-padding w3-pale-green w3-leftbar w3-border-green w3-animate-right">
-                      Get 50 users to signup to get Pro account forever
-                  </li>
+                <li class="w3-panel w3-padding w3-pale-green w3-leftbar w3-border-green w3-animate-left">
+                  Share your Recruitment link with your friends so they can join and you get upgrade:
+                </li>
+                <li class="w3-panel w3-padding w3-pale-green w3-leftbar w3-border-green w3-animate-right">
+                    Get 50 users to signup to get Pro account forever
+                </li>
+                <li class="w3-panel w3-light-gray w3-leftbar w3-border-green w3-animate-right">
+                  <span class="w3-tag w3-pale-green w3-padding">Recruitment link:</span><code>{{ recruitmentLink + user.username }}</code>
+                  <mat-icon title="Copy link" (click)="copyText(recruitmentLink + user.username)">content_copy</mat-icon>
+                </li>
+                <li class="w3-panel w3-light-gray w3-leftbar w3-border-green w3-animate-left">
+                    <span class="w3-tag w3-pale-green w3-padding">{{user.recruits || 0}}</span>users signed up with your link
+                </li>
               </ul>
           </div>
       </div>
