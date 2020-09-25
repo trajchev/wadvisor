@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "dev": "npm run clearDevPort && nodemon server.js",
+    "dev": "nodemon server.js",
     "clearDevPort": "npx kill-port 3000",
+    "fixMemoryLimit": "cross-env LIMIT=4096 increase-memory-limit",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
