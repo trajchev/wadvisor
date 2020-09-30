@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { PageService } from './page.service';
 import { PageModel } from 'src/app/models/page.model';
 
@@ -12,12 +11,10 @@ import { PageModel } from 'src/app/models/page.model';
 export class PageComponent implements OnInit {
 
   page: PageModel;
-  formatedPage: SafeHtml
   isPagePricing: boolean = false;
 
   constructor(
     public pageRef: MatDialogRef<PageComponent>,
-    private sanitizer: DomSanitizer,
     @Inject(MAT_DIALOG_DATA) public data: { slug: string, last_four: string },
     private pageService: PageService,
     public dialog: MatDialog
@@ -33,7 +30,6 @@ export class PageComponent implements OnInit {
     }
     this.pageService.getPage(this.data.slug).subscribe((page: PageModel) => {
       this.page = page;
-      this.formatedPage = this.sanitizer.bypassSecurityTrustHtml(page.content);
     });
   }
 

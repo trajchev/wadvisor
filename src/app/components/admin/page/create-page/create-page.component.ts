@@ -34,9 +34,12 @@ export class CreatePageComponent implements OnInit {
       this.createPageForm.value.slug,
       this.createPageForm.value.description,
       this.createPageForm.value.content
-    ).subscribe(res => {
+    ).subscribe((res: string) => {
       this.isLoading = false;
       console.log(res)
+      if (res == 'success') {
+        this.createPageForm.reset();
+      }
     });
   }
 

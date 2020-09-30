@@ -12,12 +12,14 @@ import { SnackbarComponent } from './modal/snackbar/snackbar.component';
 import { TicketCreateComponent } from './modal/ticket-create/ticket-create.component';
 import { MsToDatePipe } from '../../pipes/msToDate.pipe';
 import { StrToDatePipe } from '../../pipes/strToDate.pipe';
+import { KeepHTMLPipe } from '../../pipes/keepHTML.pipe';
 import { DataCacheInterceptor } from './data-cache.interceptor';
 
 @NgModule({
   declarations: [
     MsToDatePipe,
     StrToDatePipe,
+    KeepHTMLPipe,
     HeaderComponent,
     NavMainComponent,
     ConfirmationComponent,
@@ -43,6 +45,7 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
     HttpClientModule,
     MsToDatePipe,
     StrToDatePipe,
+    KeepHTMLPipe,
     NavMainComponent,
     ConfirmationComponent,
     SnackbarComponent,

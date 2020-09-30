@@ -28,8 +28,11 @@ export class AdminService {
     )
   }
 
-  createPage(title: string, slug: string, description: string, content: string): Observable<{status: string, data: PageModel}> {
-    return this.http.post<{status: string, data: PageModel}>(`${environment.ENDPOINT_API}pages`, {slug, title, description, content})
+  createPage(title: string, slug: string, description: string, content: string): Observable<string> {
+    return this.http.post<{status: string}>(`${environment.ENDPOINT_API}pages`, {slug, title, description, content})
+    .pipe(
+      map((res: {status: string, data: PageModel}) => res.status)
+    )
   }
 
 }
