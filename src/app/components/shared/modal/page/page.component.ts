@@ -30,6 +30,8 @@ export class PageComponent implements OnInit {
     }
     this.pageService.getPage(this.data.slug).subscribe((page: PageModel) => {
       this.page = page;
+      console.log(page.content);
+      this.page.content = '<h4>Hello World</h4>';
     });
   }
 

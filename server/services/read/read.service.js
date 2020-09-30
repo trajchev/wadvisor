@@ -19,6 +19,25 @@ const read = Model => catchAsync(async (req, res, next) => {
 
 });
 
+const readAllPages = Model => catchAsync(async(req, res, next) => {
+
+  const docs = await Model.findAll();
+
+  if (!docs) {
+    res.status(404).json({
+        status: 'failure',
+        message: 'No Documents found'
+    });
+    return next(new BAError('No Document found', 404));
+}
+
+res.status(200).json({
+    status: 'success',
+    data: docs
+});
+
+});
+
 const readAll = Model => catchAsync(async (req, res, next) => {
 
   let limit = 36, page = 1, offset, order = [['commence_time', 'DESC']];
@@ -262,6 +281,7 @@ const readUsers = Model => catchAsync(async (req, res, next) => {
 module.exports = {
   read, readAll,
   readMatches,
+  readAllPages,
   readUser, readUsers,
   readAllSports, readBySlug,
   readAssociated,  readAssociatedPaginated,

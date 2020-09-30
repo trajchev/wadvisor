@@ -4,4 +4,14 @@
           <h6>Admin dashboard component works!</h6>
       </div>
   </div>
+  <div class="w3-row">
+    <div class="w3-col m4" *ngFor="let page of pages">
+      <div class="w3-card w3-padding">
+        <h3>{{page.title}}</h3>
+        <p>{{page.description}}</p>
+        <button class="w3-btn w3-pale-yellow">Edit</button>
+        <button class="w3-btn w3-pale-red w3-right">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>

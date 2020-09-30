@@ -35,4 +35,11 @@ export class AdminService {
     )
   }
 
+  getPages(): Observable<PageModel[]> {
+    return this.http.get<{status: string, data: PageModel[]}>(`${environment.ENDPOINT_API}pages`)
+      .pipe(
+        map((res: {status: string, data: PageModel[]}) => res.data)
+      )
+  }
+
 }
