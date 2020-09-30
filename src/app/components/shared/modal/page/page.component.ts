@@ -31,7 +31,7 @@ export class PageComponent implements OnInit {
     if (this.data.slug === 'pricing') {
       this.isPagePricing = true;
     }
-    this.pageService.getPage(this.data.slug).subscribe(page => {
+    this.pageService.getPage(this.data.slug).subscribe((page: PageModel) => {
       this.page = page;
       this.formatedPage = this.sanitizer.bypassSecurityTrustHtml(page.content);
     });
