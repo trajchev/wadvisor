@@ -5,32 +5,14 @@
           <form [formGroup]="signupForm" (ngSubmit)="onRegister()" *ngIf="!isLoading">
               <header class="w3-container w3-center">Create your account</header>
               <div class="w3-container">
-                  <mat-form-field class="w3-block">
-                      <mat-label>Username</mat-label>
-                      <input matInput formControlName="userName" placeholder="Username">
-                      <mat-error>Please provide a valid/different username</mat-error>
-                  </mat-form-field>
-                  <mat-form-field class="w3-block">
-                      <mat-label>Email</mat-label>
-                      <input matInput formControlName="email" placeholder="Ex. pat@example.com">
-                      <mat-error>Please provide a valid/different email</mat-error>
-                  </mat-form-field>
-                  <mat-form-field class="w3-block">
-                      <mat-label>Password</mat-label>
-                      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password">
-                      <mat-icon svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hide = !hide"></mat-icon>
-                      <mat-error>Please provide a valid password</mat-error>
-                  </mat-form-field>
-                  <mat-form-field class="w3-block">
-                      <mat-label>Confirm password</mat-label>
-                      <input matInput [formControlName]="'passwordConfirm'" [type]="hideConfirm ? 'password' : 'text'" placeholder="Confirm password">
-                      <mat-icon svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hideConfirm = !hideConfirm"></mat-icon>
-                      <mat-error>Passwords do not match</mat-error>
-                  </mat-form-field>
-                  <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">User or/and email already taken</div>
-                  <div class="form-info">
-                      By signing up you agree to the <a (click)="onLoadInfo('tos')">TOS</a>
-                  </div>
+                <app-input label="Username" [control]="signupForm.get('userName')" placeholder="Username" inputType="text"></app-input>
+                <app-input label="Email" [control]="signupForm.get('email')" placeholder="Ex. pat@example.com" inputType="email"></app-input>
+                <app-input label="Password" [control]="signupForm.get('password')" placeholder="Ex. pass" inputType="password"></app-input>
+                <app-input label="Confirm Password" [control]="signupForm.get('passwordConfirm')" placeholder="Ex. pass" inputType="password"></app-input>
+                <div class="w3-text-red w3-padding w3-center w3-small" *ngIf="!authCredentialsOK">User or/and email already taken</div>
+                <div class="form-info">
+                    By signing up you agree to the <a (click)="onLoadInfo('tos')">TOS</a>
+                </div>
               </div>
               <footer class="w3-container">
                   <button mat-stroked-button type="submit" color="primary" class="w3-right" [disabled]="!signupForm.valid" >Register</button>

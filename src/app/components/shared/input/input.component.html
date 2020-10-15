@@ -1,0 +1,7 @@
+<mat-form-field class="w3-block">
+  <mat-label>{{label}}</mat-label>
+  <input *ngIf="inputType!='password'" matInput [formControl]="control" [placeholder]="placeholder" [type]="inputType" />
+  <input *ngIf="inputType==='password'" matInput [formControl]="control" [type]="hide ? 'password' : 'text'" [placeholder]="placeholder">
+  <mat-icon *ngIf="inputType==='password'" svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hide = !hide"></mat-icon>
+  <mat-error>Please provide a valid email</mat-error>
+</mat-form-field>

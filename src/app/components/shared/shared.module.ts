@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from '../../material.module';
 import { HeaderComponent } from './header/header.component';
+import { SplashButtonComponent } from './splash-button/splash-button.component';
 import { NavMainComponent } from './nav-main/nav-main.component';
 import { ConfirmationComponent } from './modal/confirmation/confirmation.component';
 import { PageComponent } from './modal/page/page.component';
@@ -14,6 +15,7 @@ import { MsToDatePipe } from '../../pipes/msToDate.pipe';
 import { StrToDatePipe } from '../../pipes/strToDate.pipe';
 import { KeepHTMLPipe } from '../../pipes/keepHTML.pipe';
 import { DataCacheInterceptor } from './data-cache.interceptor';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
     ConfirmationComponent,
     PageComponent,
     SnackbarComponent,
-    TicketCreateComponent
+    TicketCreateComponent,
+    SplashButtonComponent,
+    InputComponent
   ],
   imports: [
     RouterModule,
@@ -50,6 +54,8 @@ import { DataCacheInterceptor } from './data-cache.interceptor';
     ConfirmationComponent,
     SnackbarComponent,
     TicketCreateComponent,
+    SplashButtonComponent,
+    InputComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: DataCacheInterceptor, multi: true}

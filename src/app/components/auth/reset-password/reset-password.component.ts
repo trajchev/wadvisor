@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ba-reset-password',
@@ -12,8 +10,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  hide: boolean = true;
-  hideConfirm: boolean = true;
   passMatch: boolean = true;
   passReset: boolean = false;
   isLoading: boolean = false;
@@ -24,11 +20,7 @@ export class ResetPasswordComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
-  ) {
-    iconRegistry.addSvgIcon('visibility', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility.svg'));
-  }
+  ) { }
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');

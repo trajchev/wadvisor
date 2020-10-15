@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../../auth/auth.service';
 import { PageComponent } from '../../shared/modal/page/page.component';
@@ -14,8 +12,6 @@ import { PageComponent } from '../../shared/modal/page/page.component';
 })
 export class SignupComponent implements OnInit {
 
-  hide: boolean = true;
-  hideConfirm: boolean = true;
   isLoading: boolean = false;
   isChecked: boolean = false;
   signupForm: FormGroup;
@@ -24,12 +20,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     public dialog: MatDialog,
-    iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer,
     private route: ActivatedRoute
-  ) {
-    iconRegistry.addSvgIcon('visibility', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility.svg'));
-  }
+  ) { }
 
   ngOnInit(): void {
     this.isLoading = false;

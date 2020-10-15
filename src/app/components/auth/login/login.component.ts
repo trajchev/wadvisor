@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
@@ -12,17 +10,12 @@ import { AuthService } from '../../../auth/auth.service';
 export class LoginComponent implements OnInit {
 
   isLoading: boolean = false;
-  hide: boolean = true
   authCredentialsOK: boolean = true;
   loginForm: FormGroup;
 
   constructor(
-    public iconRegistry: MatIconRegistry,
-    public sanitizer: DomSanitizer,
     private authService: AuthService
-  ) {
-    iconRegistry.addSvgIcon('visibility', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility.svg'));
-  }
+  ) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({

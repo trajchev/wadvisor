@@ -1,0 +1,11 @@
+@import '../../../../variables';
+
+mat-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  fill: $pale_green;
+  cursor: pointer;
+}
