@@ -96,6 +96,16 @@ img {
     }
 }
 
+.auth-wrapper {
+  max-width: 420px;
+  margin: 10rem auto;
+  padding: 2rem 0;
+}
+
+mat-progress-spinner {
+  margin: 1rem auto;
+}
+
 @media screen and (min-width: 768px) {
     .ba-content {
       padding: 4rem 0.5rem 1rem 20.5rem;
