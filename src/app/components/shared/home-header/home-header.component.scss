@@ -1,0 +1,31 @@
+@import '../../../../variables';
+
+mat-toolbar {
+    border-bottom: 1px solid $pale_green;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54px;
+    z-index: 99;
+    color: #fff;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+button {
+  margin-left: 1rem;
+}
+
+#branding {
+    text-decoration: none;
+    img {
+        width: 2.4rem;
+        height: 2.4rem;
+        border: none;
+        border-radius: 0;
+    }
+}

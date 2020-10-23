@@ -1,3 +1,4 @@
+<ba-home-header *ngIf="!isAuthenticated"></ba-home-header>
 <router-outlet *ngIf="!isAuthenticated"></router-outlet>
 
 <ba-header *ngIf="isAuthenticated"></ba-header>

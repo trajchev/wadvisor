@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from '../../material.module';
 import { HeaderComponent } from './header/header.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
 import { SplashButtonComponent } from './splash-button/splash-button.component';
 import { NavMainComponent } from './nav-main/nav-main.component';
 import { ConfirmationComponent } from './modal/confirmation/confirmation.component';
@@ -23,6 +24,7 @@ import { InputComponent } from './input/input.component';
     StrToDatePipe,
     KeepHTMLPipe,
     HeaderComponent,
+    HomeHeaderComponent,
     NavMainComponent,
     ConfirmationComponent,
     PageComponent,
@@ -45,6 +47,7 @@ import { InputComponent } from './input/input.component';
     FormsModule,
     ReactiveFormsModule,
     HeaderComponent,
+    HomeHeaderComponent,
     MaterialModule,
     HttpClientModule,
     MsToDatePipe,
