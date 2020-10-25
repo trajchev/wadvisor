@@ -5,7 +5,7 @@ const uploadUserPhoto = upload.single('photo');
 const updateUser = update.update(User);
 const updateMe = update.updateUser(User);
 const getUser = read.readUser(User, ['username', 'email', 'photo', 'role', 'recruits', 'last_four', 'created_at']);
-const getAllUsers = read.readUsers(User);
+const getAllUsers = read.readAll(User, null, null, null, null, ['id', 'username', 'email', 'role', 'recruits', 'recruiter_id']);
 const getMe = (req, res, next) => {
   const userId = req.user.id;
   req.params.id = userId;

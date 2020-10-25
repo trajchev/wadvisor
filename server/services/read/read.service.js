@@ -22,7 +22,14 @@ const read = (Model, included = null, attrs = null) => catchAsync(async (req, re
 
 });
 
-const readAll = (Model, included = null, order = null, limit = null, offset = null, attrs = null) => catchAsync(async(req, res, next) => {
+const readAll = (
+  Model,
+  included = null,
+  order = null,
+  limit = null,
+  offset = null,
+  attrs = null
+) => catchAsync(async(req, res, next) => {
 
   if (req.params.page) {
     limit = +req.params.perPage;
@@ -35,6 +42,7 @@ const readAll = (Model, included = null, order = null, limit = null, offset = nu
   if (req.params.ticketId) { filter.ticket = req.params.ticketId };
   if (req.params.group) { filter.group = req.params.group };
   if (req.params.league) { filter.sport_key = req.params.league };
+  if (req.params.role) { filter.role = req.params.role };
 
   const occurences = await Model.count({where: filter, include: included});
 
@@ -52,6 +60,7 @@ const readAll = (Model, included = null, order = null, limit = null, offset = nu
   }
 
   res.status(200).json({
+    status: 'success',
     stats: {
       records: occurences,
       perpage: limit,
@@ -159,49 +168,9 @@ const readUser = (Model, attrs = null) => catchAsync(async (req, res, next) => {
 
 });
 
-const readUsers = Model => catchAsync(async (req, res, next) => {
-
-  let limit, page = 1, offset;
-
-  if (req.params.page) {
-      limit = +req.params.perPage;
-      page = +req.params.page;
-      offset = (page - 1) * limit;
-  }
-
-  // To allow for nested GET reviews on ticket
-  let filter = {};
-  if (req.params.role) { filter.role = req.params.role };
-  const occurences = await Model.count({where: filter});
-  const docs = await Model.findAll({limit, offset, where: filter,
-      attributes: ['id', 'username', 'email', 'role', 'recruits', 'recruiter_id']
-  });
-
-  if (!docs) {
-
-      res.status(404).json({
-          status: 'failure',
-          message: 'No Documents found'
-      });
-
-      return next(new BAError('No Documents found', 404));
-  }
-
-  res.status(200).json({
-      status: 'success',
-      stats: {
-          records: occurences,
-          perpage: limit,
-          current: docs.length,
-          offset: offset
-      },
-      data: docs
-  });
-});
-
 module.exports = {
   read, readAll,
-  readUser, readUsers,
+  readUser,
   readAllSports,
   readAllProprietary
 }
