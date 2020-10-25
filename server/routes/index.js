@@ -6,5 +6,6 @@ const team = require('./team');
 const faq = require('./faq');
 const ticket = require('./ticket');
 const page = require('./page');
+const home = require('./home');
 
-module.exports =  { user, league, match, site, page, team, faq, ticket };
+module.exports =  { user, league, match, site, page, team, faq, ticket, home };

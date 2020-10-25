@@ -10,7 +10,7 @@ const cors = require('cors');
 const compression = require('compression');
 const { data } = require('./services');
 
-const { faq, user, league, match, site, page, team, ticket } = require('./routes');
+const { faq, user, league, match, site, page, home, team, ticket } = require('./routes');
 const BAError = require('./utils/BAError');
 
 const app = express();
@@ -60,6 +60,7 @@ app.use('/api/v1/leagues', league);
 app.use('/api/v1/matches', match);
 app.use('/api/v1/sites', site);
 app.use('/api/v1/pages', page);
+app.use('/api/v1/home', home);
 app.use('/api/v1/teams', team);
 app.use('/api/v1/tickets', ticket);
 app.use('/api/v1/faq', faq);

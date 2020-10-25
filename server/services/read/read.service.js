@@ -148,6 +148,29 @@ const readMatches = (Model, includedModels) => catchAsync( async(req, res, next)
 
 });
 
+const readHomeMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
+
+  let limit = 10, order = [['commence_time', 'DESC']];
+
+  const docs = await Model.findAll({order, limit, where: { sport_key: 'soccer_epl' },
+      include: includedModels
+  });
+
+  if (!docs) {
+      res.status(404).json({
+          status: 'failure',
+          msg: 'No Documents found'
+      });
+      return next(new BAError('No Documents found', 404));
+  }
+
+  res.status(200).json({
+      status: 'success',
+      data: docs
+  });
+
+});
+
 const readBySlug = Model => catchAsync(async (req, res, next) => {
 
   const doc = await Model.findOne({where: {slug: req.params.slug}});
@@ -285,4 +308,5 @@ module.exports = {
   readUser, readUsers,
   readAllSports, readBySlug,
   readAssociated,  readAssociatedPaginated,
+  readHomeMatches
 }
