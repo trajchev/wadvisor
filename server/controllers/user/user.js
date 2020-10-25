@@ -4,7 +4,7 @@ const { read, update, remove, email, resize, upload } = require('../../services'
 const uploadUserPhoto = upload.single('photo');
 const updateUser = update.update(User);
 const updateMe = update.updateUser(User);
-const getUser = read.readUser(User);
+const getUser = read.readUser(User, ['username', 'email', 'photo', 'role', 'recruits', 'last_four', 'created_at']);
 const getAllUsers = read.readUsers(User);
 const getMe = (req, res, next) => {
   const userId = req.user.id;

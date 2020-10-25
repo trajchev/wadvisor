@@ -6,7 +6,7 @@ const { pageCtrl } = require('../controllers');
 const router = express.Router();
 
 router.get('/', pageCtrl.getPages);
-router.get('/:slug', pageCtrl.getPage);
+router.get('/:id', pageCtrl.getPage);
 
 router.use(auth.protect);
 router.use(auth.restrictTo('admin'));

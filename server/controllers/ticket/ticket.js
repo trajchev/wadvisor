@@ -3,15 +3,15 @@ const { create, read, update, remove } = require('../../services');
 
 const createTicket = create.create(Ticket);
 const deleteTicket = remove.remove(Ticket);
-const getTicket = read.readAssociated(Ticket, [
+const getTicket = read.read(Ticket, [
   {
     model: BetMatch,
     as: "betmatches",
     include: {model: Match}
   }
 ]);
-const getTicketsLight = read.readAll(Ticket);
-const getTickets = read.readAssociatedPaginated(Ticket, [
+const getTicketsLight = read.readAllProprietary(Ticket);
+const getTickets = read.readAllProprietary(Ticket, [
   {
     model: BetMatch,
     as: "betmatches",

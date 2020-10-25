@@ -1,9 +1,12 @@
 const catchAsync = require('../../utils/catch-async');
 const BAError = require('../../utils/BAError');
 
-const read = Model => catchAsync(async (req, res, next) => {
+const read = (Model, included = null, attrs = null) => catchAsync(async (req, res, next) => {
 
-  const doc = await Model.findOne({where: {id: req.params.id}});
+  const doc = await Model.findOne({where: {id: req.params.id},
+    attributes: attrs,
+    include: included
+  });
 
   if (!doc) {
       res.status(404).json({
@@ -19,9 +22,26 @@ const read = Model => catchAsync(async (req, res, next) => {
 
 });
 
-const readAllPages = Model => catchAsync(async(req, res, next) => {
+const readAll = (Model, included = null, order = null, limit = null, offset = null, attrs = null) => catchAsync(async(req, res, next) => {
 
-  const docs = await Model.findAll();
+  if (req.params.page) {
+    limit = +req.params.perPage;
+    page = +req.params.page;
+    offset = (page - 1) * limit;
+  }
+
+  let filter = {};
+
+  if (req.params.ticketId) { filter.ticket = req.params.ticketId };
+  if (req.params.group) { filter.group = req.params.group };
+  if (req.params.league) { filter.sport_key = req.params.league };
+
+  const occurences = await Model.count({where: filter, include: included});
+
+  const docs = await Model.findAll({order, limit, offset, where: filter,
+    attributes: attrs,
+    include: included
+  });
 
   if (!docs) {
     res.status(404).json({
@@ -29,55 +49,18 @@ const readAllPages = Model => catchAsync(async(req, res, next) => {
         message: 'No Documents found'
     });
     return next(new BAError('No Document found', 404));
-}
-
-res.status(200).json({
-    status: 'success',
-    data: docs
-});
-
-});
-
-const readAll = Model => catchAsync(async (req, res, next) => {
-
-  let limit = 36, page = 1, offset, order = [['commence_time', 'DESC']];
-
-  if (req.params.page) {
-      limit = +req.params.perPage;
-      page = +req.params.page;
-      offset = (page - 1) * limit;
-  }
-
-  // To allow for nested GET reviews on ticket
-  let filter = {};
-
-  if (req.params.ticketId) filter = { ticket: req.params.ticketId };
-  if (req.params.group) { filter.group = req.params.group };
-  if (req.params.league) { filter.sport_key = req.params.league };
-
-  // const {occurences, docs} = await Model.findAndCountAll({where: filter, limit, offset, order});
-
-  const occurences = await Model.count({where: filter});
-  const docs = await Model.findAll({order, limit, offset, where: filter});
-
-  if (!docs) {
-      res.status(404).json({
-          status: 'failure',
-          message: 'No Documents found'
-      });
-      return next(new BAError('No Document found', 404));
   }
 
   res.status(200).json({
-      status: 'success',
-      stats: {
-          records: occurences,
-          perpage: limit,
-          current: docs.length,
-          offset: offset
-      },
-      data: docs
+    stats: {
+      records: occurences,
+      perpage: limit,
+      current: docs.length,
+      offset: offset
+    },
+    data: docs
   });
+
 });
 
 const readAllSports = (Model, AssocModel) => catchAsync( async(req, res, next) => {
@@ -104,92 +87,7 @@ const readAllSports = (Model, AssocModel) => catchAsync( async(req, res, next) =
 
 });
 
-const readAssociated = (Model, includedModels) => catchAsync( async(req, res, next) => {
-
-  const docs = await Model.findOne({ where: { id: req.params.id },
-      include: includedModels
-  });
-
-  if (!docs) {
-      res.status(404).json({
-          status: 'failure',
-          msg: 'No Document found with that id'
-      });
-      return next(new BAError('No Document found with that id', 404));
-  }
-
-  res.status(200).json({
-      status: 'success',
-      data: docs
-  });
-
-});
-
-const readMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
-
-  let limit = 40, order = [['commence_time', 'DESC']];
-
-  const docs = await Model.findAll({order, limit, where: { sport_key: req.params.league },
-      include: includedModels
-  });
-
-  if (!docs) {
-      res.status(404).json({
-          status: 'failure',
-          msg: 'No Document found with that id'
-      });
-      return next(new BAError('No Document found with that id', 404));
-  }
-
-  res.status(200).json({
-      status: 'success',
-      data: docs
-  });
-
-});
-
-const readHomeMatches = (Model, includedModels) => catchAsync( async(req, res, next) => {
-
-  let limit = 10, order = [['commence_time', 'DESC']];
-
-  const docs = await Model.findAll({order, limit, where: { sport_key: 'soccer_epl' },
-      include: includedModels
-  });
-
-  if (!docs) {
-      res.status(404).json({
-          status: 'failure',
-          msg: 'No Documents found'
-      });
-      return next(new BAError('No Documents found', 404));
-  }
-
-  res.status(200).json({
-      status: 'success',
-      data: docs
-  });
-
-});
-
-const readBySlug = Model => catchAsync(async (req, res, next) => {
-
-  const doc = await Model.findOne({where: {slug: req.params.slug}});
-
-  if (!doc) {
-      res.status(404).json({
-          status: 'failure',
-          msg: 'No Document found with that slug'
-      });
-      return next(new BAError('No Document found with that slug', 404));
-  }
-
-  res.status(200).json({
-      status: 'success',
-      data: doc
-  });
-});
-
-const readAssociatedPaginated = (Model, includedModels, order) => catchAsync(async (req, res, next) => {
+const readAllProprietary = (Model, includedModels, order) => catchAsync(async (req, res, next) => {
   let limit,
     page = 1,
     offset;
@@ -234,11 +132,11 @@ const readAssociatedPaginated = (Model, includedModels, order) => catchAsync(asy
   });
 });
 
-const readUser = Model => catchAsync(async (req, res, next) => {
+const readUser = (Model, attrs = null) => catchAsync(async (req, res, next) => {
 
   const doc = await Model.findOne({
       where: {id: req.params.id},
-      attributes: ['username', 'email', 'photo', 'role', 'recruits', 'last_four', 'created_at']
+      attributes: attrs
   });
 
   if (!doc) {
@@ -303,10 +201,7 @@ const readUsers = Model => catchAsync(async (req, res, next) => {
 
 module.exports = {
   read, readAll,
-  readMatches,
-  readAllPages,
   readUser, readUsers,
-  readAllSports, readBySlug,
-  readAssociated,  readAssociatedPaginated,
-  readHomeMatches
+  readAllSports,
+  readAllProprietary
 }
