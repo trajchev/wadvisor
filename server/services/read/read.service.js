@@ -72,13 +72,10 @@ const readAll = (
 
 });
 
-const readAllSports = (Model, AssocModel) => catchAsync( async(req, res, next) => {
+const readAllSports = (Model, included, atrs) => catchAsync( async(req, res, next) => {
   const docs = await Model.findAll({
-      attributes: ['title'],
-      include: [{
-          model: AssocModel,
-          attributes: ['key', 'active', 'details', 'title']
-      }],
+      attributes: atrs,
+      include: included
   });
 
   if (!docs) {
