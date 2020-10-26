@@ -26,7 +26,7 @@ $new-ba-theme: mat-light-theme($new-ba-primary, $new-ba-accent, $new-ba-warn);
 @include angular-material-theme($new-ba-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import './variables';
+@import './assets/sass/abstracts/variables';
 
 ::-moz-selection {
     color: $primary_gold;
