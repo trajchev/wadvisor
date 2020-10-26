@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import '../../../assets/sass/abstracts/variables';
 
 #ba-splash {
     position: relative;
@@ -45,6 +45,39 @@
     right: 0;
     bottom: 0;
     background: $transparent_black;
+}
+
+.carousel {
+
+  &__wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  &__item {
+    width: 25%;
+    display: inline-block;
+  }
+}
+
+.w3-panel {
+  position: relative;
+  padding: .5rem 7rem .5rem 1rem;
+  color: $primary_green;
+  margin: 0;
+  span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 6rem;
+      font-weight: 700;
+  }
 }
 
 @media (min-width: 768px) {
