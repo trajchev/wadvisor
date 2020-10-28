@@ -94,6 +94,15 @@ img {
     &-content {
         padding: 8rem 0 1rem 0;
     }
+
+    &-text {
+      &-green {
+        color: $primary_green;
+      }
+      &-gold {
+        color: $primary_gold;
+      }
+    }
 }
 
 .auth-wrapper {

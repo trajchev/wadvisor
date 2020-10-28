@@ -1,4 +1,4 @@
-@import '../../../assets/sass/abstracts/variables';
+@import '../../../assets/sass/main';
 
 #ba-splash {
     position: relative;
@@ -60,23 +60,25 @@
   }
 
   &__item {
-    width: 25%;
+    width: 20%;
     display: inline-block;
   }
 }
 
 .w3-panel {
   position: relative;
-  padding: .5rem 7rem .5rem 1rem;
-  color: $primary_green;
+  padding: .2rem 7rem .2rem 1rem;
+  color: $primary_gray;
+  background: rgba(0, 0, 0, .7);
   margin: 0;
-  span {
+  border-bottom: 0;
+  .w3-tag {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       width: 6rem;
-      font-weight: 700;
+      padding: .2rem;
   }
 }
 

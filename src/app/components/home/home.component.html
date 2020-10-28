@@ -14,13 +14,13 @@
   <div class="w3-container">
     <div class="carousel__wrapper">
       <div class="carousel__item" *ngFor="let item of homeItems">
-        <div class="w3-card w3-container">
+        <div class="w3-container">
           <ul class="w3-ul">
-            <li class="w3-panel w3-sand">
-              {{item.home_team}} to win <span class="w3-tag w3-pale-green w3-padding">{{item.h2hs[0].odds_home}}</span>
+            <li class="w3-panel">
+              <span class="ba-text-gold">{{item.home_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_home}}</span>
             </li>
-            <li class="w3-panel w3-sand">
-              {{item.away_team}} to win <span class="w3-tag w3-pale-green w3-padding">{{item.h2hs[0].odds_away}}</span>
+            <li class="w3-panel">
+              <span class="ba-text-gold">{{item.away_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_away}}</span>
             </li>
           </ul>
         </div>
