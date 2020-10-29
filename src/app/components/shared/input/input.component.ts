@@ -25,6 +25,7 @@ export class InputComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.control)
   }
 
 }

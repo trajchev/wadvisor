@@ -14,10 +14,6 @@ interface AuthResponseData {
   level: string;
 }
 
-interface UsernameAvailableResponse {
-  available: boolean;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -56,13 +52,6 @@ export class AuthService {
   // Emit user login/logout
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
-  }
-
-  usernameAvailable(username: string) {
-    return this.http.post<UsernameAvailableResponse>(
-      `${BACKEND_URL}users/unique`,
-      { username }
-    );
   }
 
   // signup

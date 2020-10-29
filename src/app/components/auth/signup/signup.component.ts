@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../../auth/auth.service';
-import { MatchPassword } from '../../../auth/validators/match-password/match-password.validator';
-import { UniqueUsername } from '../../../auth/validators/unique-username/unique-username.validator';
+import { MatchPassword } from '../../../auth/match-password.validator';
 import { PageComponent } from '../../shared/modal/page/page.component';
 
 @Component({
@@ -12,7 +11,7 @@ import { PageComponent } from '../../shared/modal/page/page.component';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterContentChecked {
 
   isLoading: boolean = false;
   isChecked: boolean = false;
@@ -24,7 +23,7 @@ export class SignupComponent implements OnInit {
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private matchPassword: MatchPassword,
-    private uniqueUsername: UniqueUsername
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +36,7 @@ export class SignupComponent implements OnInit {
             Validators.minLength(3),
             Validators.maxLength(20),
             Validators.pattern(/^[a-z0-9]+$/)
-          ],
-          [this.uniqueUsername.validate]
+          ]
         ),
         'email': new FormControl(null,
           [
@@ -63,6 +61,10 @@ export class SignupComponent implements OnInit {
       },
       { validators: [this.matchPassword.validate] }
     );
+  }
+
+  ngAfterContentChecked() {
+    this.cd.detectChanges();
   }
 
   onRegister() {

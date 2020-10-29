@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 
@@ -7,21 +7,26 @@ import { AuthService } from '../../../auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterContentChecked {
 
   isLoading: boolean = false;
   authCredentialsOK: boolean = true;
   loginForm: FormGroup;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)])
     });
+  }
+
+  ngAfterContentChecked() {
+    this.cd.detectChanges();
   }
 
   onLogin() {
@@ -29,12 +34,13 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    // Stop execution of form is invalid
-    if ( this.loginForm.invalid ) { return; }
-
     this.isLoading = true;
     this.authService.login(email, password);
     this.authCredentialsOK = this.authService.authCredentialsOK;
-    this.loginForm.reset();
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+
   }
 }

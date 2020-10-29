@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
 })
-export class ResetPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit, AfterContentChecked {
 
   passMatch: boolean = true;
   passReset: boolean = false;
@@ -20,6 +20,7 @@ export class ResetPasswordComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +29,10 @@ export class ResetPasswordComponent implements OnInit {
       'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'passwordConfirm': new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
+  }
+
+  ngAfterContentChecked() {
+    this.cd.detectChanges();
   }
 
   onResetPassword() {
