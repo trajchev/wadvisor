@@ -165,9 +165,22 @@ const readUser = (Model, attrs = null) => catchAsync(async (req, res, next) => {
 
 });
 
+const isUsernameAvailable = (Model) => catchAsync( async(req, res, next) => {
+
+  const doc = await Model.findOne({
+    where: {username: req.body.username}
+  });
+
+  res.status(200).json({
+    available: !doc
+  });
+
+});
+
 module.exports = {
   read, readAll,
   readUser,
+  isUsernameAvailable,
   readAllSports,
   readAllProprietary
 }

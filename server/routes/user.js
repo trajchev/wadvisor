@@ -4,6 +4,7 @@ const { userCtrl } = require("../controllers");
 const router = express.Router();
 
 
+router.post("/unique", auth.isUsernameAvailable);
 router.post("/signup", auth.signup);
 router.post("/signup/:recruiter", auth.signup);
 router.post("/login", auth.login);
