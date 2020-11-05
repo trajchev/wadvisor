@@ -55,8 +55,18 @@
     right: 0;
     bottom: 0;
     width: 100%;
+  }
+
+  &__content {
     white-space: nowrap;
     overflow-x: hidden;
+    scrollbar-width: none;
+    cursor: pointer;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: transparent
+    }
   }
 
   &__heading {

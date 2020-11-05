@@ -17,6 +17,7 @@ import { StrToDatePipe } from '../../pipes/strToDate.pipe';
 import { KeepHTMLPipe } from '../../pipes/keepHTML.pipe';
 import { DataCacheInterceptor } from './data-cache.interceptor';
 import { InputComponent } from './input/input.component';
+import { HorizontalScrollDirective } from '../../directives/horizontal-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InputComponent } from './input/input.component';
     SnackbarComponent,
     TicketCreateComponent,
     SplashButtonComponent,
-    InputComponent
+    InputComponent,
+    HorizontalScrollDirective
   ],
   imports: [
     RouterModule,
@@ -39,7 +41,7 @@ import { InputComponent } from './input/input.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     RouterModule,
@@ -58,7 +60,8 @@ import { InputComponent } from './input/input.component';
     SnackbarComponent,
     TicketCreateComponent,
     SplashButtonComponent,
-    InputComponent
+    InputComponent,
+    HorizontalScrollDirective
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: DataCacheInterceptor, multi: true}

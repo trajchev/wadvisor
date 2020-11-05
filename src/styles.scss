@@ -105,10 +105,19 @@ img {
     }
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .auth-wrapper {
   max-width: 420px;
   margin: 10rem auto;
   padding: 2rem 0;
+  .w3-card {
+    background-color: aliceblue;
+  }
 }
 
 mat-progress-spinner {

@@ -14,16 +14,18 @@
   <div class="w3-container">
     <div class="carousel__wrapper">
       <h6 class="carousel__heading">Tips for today</h6>
-      <div class="carousel__item" *ngFor="let item of homeItems">
-        <div class="w3-container">
-          <ul class="w3-ul">
-            <li class="w3-panel">
-              <span class="ba-text-gold">{{item.home_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_home}}</span>
-            </li>
-            <li class="w3-panel">
-              <span class="ba-text-gold">{{item.away_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_away}}</span>
-            </li>
-          </ul>
+      <div class="carousel__content" appHorizontalScroll>
+        <div class="carousel__item" *ngFor="let item of homeItems">
+          <div class="w3-container">
+            <ul class="w3-ul">
+              <li class="w3-panel">
+                <span class="ba-text-gold">{{item.home_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_home | number: '.2'}}</span>
+              </li>
+              <li class="w3-panel">
+                <span class="ba-text-gold">{{item.away_team}}</span> to win <span class="w3-tag">{{item.h2hs[0].odds_away | number: '.2'}}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
