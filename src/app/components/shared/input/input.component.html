@@ -1,9 +1,15 @@
 <mat-form-field class="w3-block">
   <mat-label>{{label}}</mat-label>
-  <input *ngIf="inputType!='password'" matInput [formControl]="control" [placeholder]="placeholder" [type]="inputType" />
 
-  <input *ngIf="inputType==='password'" matInput [formControl]="control" [type]="hide ? 'password' : 'text'" [placeholder]="placeholder">
-  <mat-icon *ngIf="inputType==='password'" svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hide = !hide"></mat-icon>
+  <ng-container *ngIf="inputType==='password'; else notPassword">
+    <input matInput [formControl]="control" [type]="hide ? 'password' : 'text'" [placeholder]="placeholder">
+    <mat-icon svgIcon="visibility" aria-hidden="false" aria-label="toggle password visibility" (click)="hide = !hide"></mat-icon>
+  </ng-container>
 
-  <mat-error *ngIf="control.touched && control.errors">Please enter a valid value</mat-error>
+  <ng-template #notPassword>
+    <input matInput [formControl]="control" [placeholder]="placeholder" [type]="inputType" />
+  </ng-template>
+
+  <mat-error *ngIf="control.touched && control.errors">{{showErrorMessage()}}</mat-error>
+
 </mat-form-field>

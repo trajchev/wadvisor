@@ -28,4 +28,13 @@ export class InputComponent implements OnInit {
     console.log(this.control)
   }
 
+  showErrorMessage() {
+    if (this.inputType === 'email') {
+      return 'Please enter a valid email'
+    } else if (this.inputType === 'password') {
+      return 'Please enter a valid password'
+    }
+    return 'Please enter a valid value';
+  }
+
 }

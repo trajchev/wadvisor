@@ -51,8 +51,8 @@ app.use((req, res, next) => {
 });
 
 // Get data
-data.getSportsRecurring();
-data.getOddsRecurring();
+// data.getSportsRecurring();
+// data.getOddsRecurring();
 
 // Routes
 app.use('/api/v1/users', user);
