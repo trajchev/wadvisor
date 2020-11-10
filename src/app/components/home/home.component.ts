@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   getHomeStats(): void {
     this.homeService.getMatches().subscribe(res => {
       this.homeItems = res.data;
-      console.log(res);
     })
   }
 
