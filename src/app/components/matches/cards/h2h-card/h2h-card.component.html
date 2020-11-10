@@ -2,9 +2,9 @@
   <div class="w3-row">
     <div *ngFor="let h2h of h2hs" class="w3-col m3">
       <div class="w3-card w3-padding">
-        <p><span class="ba-left">{{match.home_team}}</span> odds <span class="ba-right">{{h2h.odds_home}}</span></p>
-        <p>Draw <span class="ba-right">{{h2h.odds_draw}}</span></p>
-        <p><span class="ba-left">{{match.away_team}}</span> odds <span class="ba-right">{{h2h.odds_away}}</span></p>
+        <p><span class="ba-left">{{match.home_team}}</span> odds <span class="ba-right">{{h2h.odds_home | number: '.2'}}</span></p>
+        <p>Draw <span class="ba-right">{{h2h.odds_draw | number: '.2'}}</span></p>
+        <p><span class="ba-left">{{match.away_team}}</span> odds <span class="ba-right">{{h2h.odds_away | number: '.2'}}</span></p>
         <h3>{{h2h.site.name}}</h3>
       </div>
     </div>
