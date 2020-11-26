@@ -1,19 +1,28 @@
-@import '../../../../assets/sass/main.scss';
+@import "../../../../assets/sass/main.scss";
 
 .btn-splash {
-    font-size: 3rem;
-    color: $primary_gold;
-    border: 2px solid $primary_gold;
-    text-decoration: none;
-    padding: .4rem 4rem;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    transition: all 200ms cubic-bezier(0.6, 1, 0.6, 1);
+  font-size: 2rem;
+  color: $primary_gold;
+  border: calculateRem(2px) solid $primary_gold;
+  text-decoration: none;
+  padding: 0.4rem 4rem;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  transition: all 200ms cubic-bezier(0.6, 1, 0.6, 1);
 
-    &:hover {
-        box-shadow: inset 0 0 20px $transparent_gold, 0 0 20px rgba(255, 255, 255, .2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline: 1px solid;
-        outline-offset: .6rem;
-        text-shadow: 1px 1px 2px $primary_gold;
-    }
+  &:hover {
+    box-shadow: inset 0 0 20px $transparent_gold,
+      0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline: 1px solid;
+    outline-offset: 0.6rem;
+    text-shadow: calculateRem(1px) calculateRem(1px) calculateRem(2px)
+      $primary_gold;
+  }
+}
+
+@include screen("tablet") {
+  .btn-splash {
+    font-size: 3rem;
+    padding: 0.4rem 4rem;
+  }
 }
