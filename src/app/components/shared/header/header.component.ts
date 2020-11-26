@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AuthService } from 'src/app/auth/auth.service';
@@ -12,8 +12,9 @@ import { PageComponent } from '../modal/page/page.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
 
+  @Input() isAuth: boolean = false;
   user: UserModel;
   pageSlug: string = null;
   userRole: string;
@@ -22,12 +23,19 @@ export class HeaderComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     public dialog: MatDialog
-  ) {
-    this.userRole = this.authService.getLevel();
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.getUser();
+    if (this.isAuth) {
+      this.getUser();
+      this.userRole = this.authService.getLevel();
+    }
+  }
+
+  ngOnChanges(): void {
+    if (this.isAuth) {
+      this.userRole = this.authService.getLevel();
+    }
   }
 
   onCreateTicket(): void {
@@ -43,6 +51,10 @@ export class HeaderComponent implements OnInit {
 
   getUser(): void {
     this.userService.getUser().subscribe(user => this.user = user);
+  }
+
+  getBackgroundClass(): string {
+    return this.isAuth ? 'back-user' : 'back-home';
   }
 
   openPage(slug: string): void {

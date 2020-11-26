@@ -1,11 +1,11 @@
-@import '../../../../assets/sass/main';
+@import "../../../../assets/sass/main";
 
 .form-info {
-    font-size: .8rem;
-    color: $tint_gray;
-    padding: 1rem 0;
-    a {
-        color: $tint_green;
-        cursor: pointer;
-    }
+  font-size: 0.8rem;
+  color: $tint_gray;
+  padding: 1rem 0;
+  a {
+    color: $tint_green;
+    cursor: pointer;
+  }
 }

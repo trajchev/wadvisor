@@ -24,9 +24,7 @@ export class InputComponent implements OnInit {
     iconRegistry.addSvgIcon('visibility', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility.svg'));
   }
 
-  ngOnInit(): void {
-    console.log(this.control)
-  }
+  ngOnInit(): void { }
 
   showErrorMessage() {
     if (this.inputType === 'email') {

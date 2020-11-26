@@ -1,51 +1,91 @@
-@import '../../../../assets/sass/main';
+@import "../../../../assets/sass/main";
 
 mat-toolbar {
-    border-bottom: 1px solid $pale_green;
-    background-color: $primary_green;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 54px;
-    z-index: 99;
-    color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  color: #fff;
 }
 
 .mat-menu {
-    &-panel {
-        border-radius: 0px;
+  &-panel {
+    border-radius: 0px;
+  }
+  &-item {
+    font-size: 0.8rem;
+    color: $tint_gray;
+    height: 32px;
+    line-height: 32px;
+    transition: 0.3s color;
+    &:hover {
+      color: $primary_gold;
     }
-    &-item {
-        font-size: .8rem;
-        color: $tint_gray;
-        height: 32px;
-        line-height: 32px;
-        transition: .3s color;
-        &:hover {
-            color: $primary_gold;
-        }
-    }
+  }
 }
 
 img {
-    width: 2rem;
-    height: 2rem;
-    overflow: hidden;
-    border-radius: 1rem;
-    border: 1px solid $tint_green;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid $tint_green;
 }
 
 .spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+button {
+  margin-left: 1rem;
+  outline: none;
 }
 
 #branding {
-    text-decoration: none;
-    img {
-        width: 2.4rem;
-        height: 2.4rem;
-        border: none;
-        border-radius: 0;
-    }
+  text-decoration: none;
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.btn-stroked {
+  position: relative;
+  font-size: 1rem;
+  color: $primary_gold;
+  border: 2px solid $primary_gold;
+  text-decoration: none;
+  padding: 0.1rem 3rem 0.1rem 1rem;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0);
+  transition: all 200ms cubic-bezier(0.6, 1, 0.6, 1);
+
+  &:hover {
+    box-shadow: inset 0 0 10px $transparent_gold,
+      0 0 10px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline: 1px solid;
+    outline-offset: 0.1rem;
+    text-shadow: 1px 1px 2px $primary_gold;
+  }
+
+  mat-icon {
+    position: absolute;
+    top: 6px;
+    right: 14px;
+  }
+}
+
+.back {
+  &-home {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &-user {
+    background: $primary_green;
+  }
 }
