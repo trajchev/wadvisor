@@ -1,9 +1,9 @@
-<div class="w3-container flex">
+<div class="w3-container flex ba-green-pale">
   <div class="auth-wrapper">
       <div class="w3-card w3-padding-16">
           <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
           <form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-              <header class="w3-container w3-center">Please log in</header>
+              <header class="w3-container w3-center"><h3>Please log in</h3></header>
               <div class="w3-container">
                   <app-input label="Email" [control]="loginForm.get('email')" placeholder="Ex. pat@example.com" inputType="email"></app-input>
                   <app-input label="Password" [control]="loginForm.get('password')" placeholder="Ex. pass" inputType="password"></app-input>

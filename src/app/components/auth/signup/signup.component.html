@@ -1,9 +1,9 @@
-<div class="w3-container flex">
+<div class="w3-container flex ba-green-pale">
   <div class="auth-wrapper">
       <div class="w3-card w3-padding-16">
           <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
           <form [formGroup]="signupForm" (ngSubmit)="onRegister()" *ngIf="!isLoading">
-              <header class="w3-container w3-center">Create your account</header>
+              <header class="w3-container w3-center"><h3>Create your account</h3></header>
               <div class="w3-container">
                 <app-input label="Username" [control]="signupForm.get('userName')" placeholder="Username" inputType="text"></app-input>
                 <app-input label="Email" [control]="signupForm.get('email')" placeholder="Ex. pat@example.com" inputType="email"></app-input>
