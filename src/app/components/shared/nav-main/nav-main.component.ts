@@ -5,6 +5,9 @@ import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree'
 import { NavMainService } from './nav-main.service';
 import { FlatMenuNode } from 'src/app/models/flatMenuNode.model';
 import { MenuNode } from 'src/app/models/menuNode';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../modal/confirmation/confirmation.component';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'ba-nav-main',
@@ -12,6 +15,8 @@ import { MenuNode } from 'src/app/models/menuNode';
   styleUrls: ['./nav-main.component.scss']
 })
 export class NavMainComponent implements OnInit {
+
+  private userRole: string;
 
   private _transformer = (node: MenuNode, level: number) => {
     return {
@@ -36,22 +41,44 @@ export class NavMainComponent implements OnInit {
 
   hasChild = (_: number, node: FlatMenuNode) => node.expandable;
 
-  constructor(private router: Router, private navService: NavMainService) {
+  constructor(
+    private router: Router,
+    private navService: NavMainService,
+    public dialog: MatDialog,
+    private authService: AuthService,
+  ) {
     this.navService.getNavData().subscribe((data: MenuNode[]) => this.dataSource.data = data);
-   }
+  }
 
   ngOnInit(): void {}
 
   onNavigate(key: string) {
+    this.userRole = this.authService.getLevel();
     this.router.navigate([`/matches/${key}`]).then((res:boolean) => {
       if (res && window.innerWidth < 768) {
         this.showNavigation = false;
       }
-    })
+    });
+
+    if (this.userRole === 'unconfirmed') {
+      this.openConfirmationDialog();
+    }
   }
 
   toggleNavigation(): void {
     this.showNavigation = !this.showNavigation;
+  }
+
+  openConfirmationDialog() {
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      width: '98%',
+      height: '98vh',
+      data: {
+        type: 'confirm',
+        title: 'Please confirm your email address',
+        message: 'Your account has not been confirmed. Please confirm it by going to the email account with which you provided when signing up. Click the button/link in the confirmation email we sent.'
+      }
+    });
   }
 
   @HostListener('window:resize', ['$event'])

@@ -6,7 +6,6 @@ import { UserModel } from 'src/app/models/user.model';
 import { UserService } from '../../user/user.service';
 import { TicketCreateComponent } from '../modal/ticket-create/ticket-create.component';
 import { PageComponent } from '../modal/page/page.component';
-import { ConfirmationComponent } from '../modal/confirmation/confirmation.component';
 
 @Component({
   selector: 'ba-header',
@@ -37,9 +36,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     if (this.isAuth) {
       this.userRole = this.authService.getLevel();
-      if (this.userRole === 'unconfirmed') {
-        setInterval(() => {this.openConfirmationDialog()}, 20000);
-      }
     }
   }
 
@@ -67,17 +63,6 @@ export class HeaderComponent implements OnInit, OnChanges {
       width: '94%',
       maxWidth: '680px',
       data: { slug: slug, last_four: this.user.last_four }
-    });
-  }
-
-  openConfirmationDialog() {
-    const dialogRef = this.dialog.open(ConfirmationComponent, {
-      width: '98%',
-      data: {
-        type: 'confirm',
-        title: 'Please confirm your email address',
-        message: 'Your account has not been confirmed. Please confirm it by going to the email account with which you provided when signing up. Click the button/link in the confirmation email we sent.'
-      }
     });
   }
 
