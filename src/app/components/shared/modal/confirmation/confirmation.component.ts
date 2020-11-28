@@ -6,6 +6,7 @@ import * as ticketActions from '../../../tickets/state/ticket.actions';
 
 export interface DialogData {
   ticketId?: number;
+  type?: string;
   title: string;
   message: string;
 }

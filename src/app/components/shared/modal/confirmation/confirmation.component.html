@@ -5,17 +5,27 @@
   </header>
   <footer class="ba-ticket-footer">
     <button
+      *ngIf="data.type != 'confirm'"
       mat-button
       title="Close dialog"
       color="primary"
       (click)="onCloseDialog()"
       >No</button>
     <button
+      *ngIf="data.type != 'confirm'"
         mat-button
         title="{{data.title}}"
         color="accent"
         class="right"
         (click)="deleteTicket()"
     >Yes</button>
+    <button
+      *ngIf="data.type === 'confirm'"
+      mat-stroked-button
+      title="Close dialog"
+      color="primary"
+      class="right"
+      (click)="onCloseDialog()"
+      >OK, I will confirm my email address</button>
   </footer>
 </div>
