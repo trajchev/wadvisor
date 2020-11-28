@@ -72,11 +72,11 @@ export class NavMainComponent implements OnInit {
   openConfirmationDialog() {
     const dialogRef = this.dialog.open(ConfirmationComponent, {
       width: '98%',
-      height: '98vh',
+      maxWidth: '640px',
       data: {
         type: 'confirm',
         title: 'Please confirm your email address',
-        message: 'Your account has not been confirmed. Please confirm it by going to the email account with which you provided when signing up. Click the button/link in the confirmation email we sent.'
+        message: 'Your account has not been confirmed. Please confirm it by going to the email account which you provided when signing up. Click the button/link in the confirmation email we sent.'
       }
     });
   }
