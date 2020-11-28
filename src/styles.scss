@@ -1,6 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -26,42 +26,48 @@ $new-ba-theme: mat-light-theme($new-ba-primary, $new-ba-accent, $new-ba-warn);
 @include angular-material-theme($new-ba-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import './assets/sass/abstracts/variables';
+@import "./assets/sass/main";
 
 ::-moz-selection {
-    color: $primary_gold;
-    background: $transparent_green;
+  color: $primary_gold;
+  background: $transparent_green;
 }
 ::selection {
-    color: $primary_gold;
-    background: $transparent_green;
+  color: $primary_gold;
+  background: $transparent_green;
 }
 
 /* Scrollbar */
 /* width */
 ::-webkit-scrollbar {
-    width: .5em;
+  width: 0.5em;
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #eee;
+  background: #eee;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: $pale_green;
+  background: $pale_green;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: $tint_green;
+  background: $tint_green;
 }
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic&display=swap');
-@import url('./assets/icons/material/material-icons');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Gentium+Book+Basic&display=swap");
+@import url("./assets/icons/material/material-icons");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 h1,
 h2,
@@ -69,40 +75,40 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Gentium Book Basic', serif;
+  font-family: "Gentium Book Basic", serif;
 }
 
 hr {
-    margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .ba {
-    &-right,
-    &-left {
-        min-width: 36px;
-        padding: 0;
-    }
+  &-right,
+  &-left {
+    min-width: calculateRem(36px);
+    padding: 0;
+  }
 
-    &-right {
-        float: right;
-    }
+  &-right {
+    float: right;
+  }
 
-    &-content {
-        padding: 8rem 0 1rem 0;
-    }
+  &-content {
+    padding: 8rem 0 1rem 0;
+  }
 
-    &-text {
-      &-green {
-        color: $primary_green;
-      }
-      &-gold {
-        color: $primary_gold;
-      }
+  &-text {
+    &-green {
+      color: $primary_green;
     }
+    &-gold {
+      color: $primary_gold;
+    }
+  }
 }
 
 .flex {
@@ -113,7 +119,7 @@ img {
 
 .auth-wrapper {
   max-width: 420px;
-  margin: 10rem auto;
+  margin: auto;
   padding: 2rem 0;
   .w3-card {
     background-color: aliceblue;
@@ -124,8 +130,8 @@ mat-progress-spinner {
   margin: 1rem auto;
 }
 
-@media screen and (min-width: 768px) {
-    .ba-content {
-      padding: 4rem 0.5rem 1rem 20.5rem;
-    }
+@include screen("tablet") {
+  .ba-content {
+    padding: 4rem 0.5rem 1rem 20.5rem;
+  }
 }
