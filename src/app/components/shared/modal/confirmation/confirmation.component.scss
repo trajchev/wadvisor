@@ -1,27 +1,27 @@
-@import '../../../../../assets/sass/main';
+@import "../../../../../assets/sass/main";
 
 .ba {
-    &-ticket {
-        &-header {
-            text-align: center;
-            padding: 1rem;
-            h3 {
-              font-weight: 500;
-              font-size: 1.2rem;
-              color: $primary_gray;
-              margin: 0;
-            }
-            p {
-              font-style: italic;
-              color: $tint_gray;
-              margin: 0.5rem;
-            }
-        }
-        &-footer {
-            padding: 0.5rem;
-            .right {
-                float: right;
-            }
-        }
+  &-ticket {
+    &-header {
+      text-align: center;
+      padding: 1rem;
+      h3 {
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: $primary_gray;
+        margin: 0;
+      }
+      p {
+        font-style: italic;
+        color: $tint_gray;
+        margin: 0.5rem;
+      }
     }
+    &-footer {
+      padding: 0.5rem;
+      .right {
+        float: right;
+      }
+    }
+  }
 }

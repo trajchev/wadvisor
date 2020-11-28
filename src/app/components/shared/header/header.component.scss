@@ -83,9 +83,11 @@ button {
 .back {
   &-home {
     background: rgba(0, 0, 0, 0.7);
+    height: calculateRem(68px);
   }
 
   &-user {
     background: $primary_green;
+    height: calculateRem(58px);
   }
 }

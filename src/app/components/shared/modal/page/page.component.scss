@@ -1,9 +1,10 @@
 @import "../../../../../assets/sass/main";
 
 article {
-    h2, h4 {
-        text-align: center;
-    }
+  h2,
+  h4 {
+    text-align: center;
+  }
 }
 
 .ba {
@@ -13,7 +14,7 @@ article {
       text-align: center;
       padding: 1rem;
       h2 {
-        color:  $primary_green;
+        color: $primary_green;
       }
       button {
         position: absolute;
