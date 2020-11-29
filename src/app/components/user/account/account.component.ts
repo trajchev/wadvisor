@@ -3,11 +3,9 @@ import { UserService } from '../user.service';
 import { UserModel } from 'src/app/models/user.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { PageComponent } from '../../shared/modal/page/page.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../shared/modal/snackbar/snackbar.component';
 import { mimeType } from '../mime-type.validator';
-import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'ba-account',

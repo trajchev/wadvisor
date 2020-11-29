@@ -7,7 +7,7 @@ export class UserModel {
     photo?: string;
     role: role;
     recruits: number;
-    last_four: string;
+    last_four?: string;
     createdAt: Date | string;
     updatedAt: Date | string;
 }
