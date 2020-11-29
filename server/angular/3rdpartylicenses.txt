@@ -66,6 +66,9 @@ MIT
 @angular/router
 MIT
 
+@kolkov/angular-editor
+MIT
+
 @ngrx/effects
 MIT
 

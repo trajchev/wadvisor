@@ -9,7 +9,7 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  homeItems = [];
+  public homeItems = [];
 
   stats: HomeModel = {
     sports: 30,
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   getHomeStats(): void {
-    this.homeService.getMatches().subscribe(res => {
+    this.homeService.getMatches().subscribe((res: any) => {
       this.homeItems = res.data;
     })
   }

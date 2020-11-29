@@ -1,0 +1,29 @@
+.ba {
+  &-green {
+    background-color: $primary_green;
+
+    &-pale {
+      background-color: $pale_green;
+    }
+
+    &-tint {
+      background-color: $tint_green;
+    }
+  }
+
+  &-gold {
+    background-color: $primary_gold;
+  }
+
+  &-gray {
+    background-color: $primary_gray;
+
+    &-pale {
+      background-color: $pale_gray;
+    }
+
+    &-tint {
+      background-color: $tint_gray;
+    }
+  }
+}
