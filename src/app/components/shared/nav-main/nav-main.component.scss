@@ -47,12 +47,12 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@include screen("tablet") {
   .navigation {
     bottom: 0;
     width: 20rem;
     padding: 1rem;
-    border-right: 1px solid $pale_green;
+    border-right: calculateRem(1px) solid $pale_green;
     mat-tree {
       height: auto;
     }
