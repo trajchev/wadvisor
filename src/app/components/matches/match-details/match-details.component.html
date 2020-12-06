@@ -33,7 +33,7 @@
                     ></ba-card>
                   </ng-template>
               </mat-tab>
-              <mat-tab label="Spreads" [disabled]="userRole!=='pro'">
+              <mat-tab label="Spreads" [disabled]="userRole!=='pro' && userRole!=='admin'">
                   <ng-template matTabContent>
                       <ba-card
                         [odd_type]="'spreads'"
@@ -44,7 +44,7 @@
                       ></ba-card>
                   </ng-template>
               </mat-tab>
-              <mat-tab label="Totals" [disabled]="userRole!=='pro'">
+              <mat-tab label="Totals" [disabled]="userRole!=='pro' && userRole!=='admin'">
                   <ng-template matTabContent>
                     <ba-card
                         [odd_type]="'totals'"
