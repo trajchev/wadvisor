@@ -27,9 +27,9 @@
               <mat-tab label="H2H">
                   <ng-template matTabContent>
                     <ba-card
-                      [odd_type]="'h2hs'"
-                      [match]="match"
-                      [odds]="match.h2hs"
+                      [odd_type]="'h2h'"
+                      [id]="match.id"
+                      [key]="match.sport_key"
                     ></ba-card>
                   </ng-template>
               </mat-tab>
@@ -37,8 +37,6 @@
                   <ng-template matTabContent>
                       <ba-card
                         [odd_type]="'spreads'"
-                        [home_team]="match.home_team"
-                        [away_team]="match.away_team"
                         [id]="match.id"
                         [key]="match.sport_key"
                       ></ba-card>
@@ -48,8 +46,6 @@
                   <ng-template matTabContent>
                     <ba-card
                         [odd_type]="'totals'"
-                        [home_team]="match.home_team"
-                        [away_team]="match.away_team"
                         [id]="match.id"
                         [key]="match.sport_key"
                     ></ba-card>

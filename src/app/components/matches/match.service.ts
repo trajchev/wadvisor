@@ -43,9 +43,9 @@ export class MatchService {
     )
   }
 
-  getSpreads(sportKey: string, matchId: number, oddType: string): Observable<SpreadsModel[]> {
-      return this.http.get<{status: string, data: any}>(`${environment.ENDPOINT_API}matches/${sportKey}/${matchId}/${oddType}`).pipe(
-        map((res: {status: string, data: MatchModel}) => res.data.spreads)
+  getOdds(sportKey: string, matchId: number, oddType: string): Observable<MatchModel> {
+      return this.http.get<{status: string, data: MatchModel}>(`${environment.ENDPOINT_API}matches/${sportKey}/${matchId}/${oddType}`).pipe(
+        map((res: {status: string, data: MatchModel}) => res.data)
       )
   }
 

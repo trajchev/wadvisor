@@ -16,24 +16,30 @@ export class CardComponent implements OnInit {
   @Input() odd_type: string;
   @Input() id: number;
   @Input() key: string;
-  @Input() home_team: string;
-  @Input() away_team: string;
-  @Input() odds: H2HModel[] | TotalsModel[] | SpreadsModel[];
-  @Input() match: MatchModel;
+
+  odds: H2HModel[] | TotalsModel[] | SpreadsModel[];
+  home_team: string;
+  away_team: string;
 
   constructor(
     private matchService: MatchService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    if (this.odd_type !== 'h2hs') {
-      this.fetchOdds();
-    }
+    this.fetchOdds();
   }
 
   fetchOdds(): void {
-    this.matchService.getSpreads(this.key, this.id, this.odd_type).subscribe(result => {
-      this.odds = result;
+    let formatedOddType;
+    if (this.odd_type == 'h2h') {
+      formatedOddType = 'h2hs'
+    } else {
+      formatedOddType = this.odd_type;
+    }
+    this.matchService.getOdds(this.key, this.id, this.odd_type).subscribe((result: MatchModel) => {
+      this.home_team = result.home_team;
+      this.away_team = result.away_team;
+      this.odds = result[formatedOddType];
     });
   }
 
