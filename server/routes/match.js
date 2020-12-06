@@ -15,7 +15,7 @@ router.route('/:league/:id')
 router.route('/:league/:id/h2h')
     .get(matchCtrl.getMatchH2H);
 
-router.use(auth.restrictTo('pro'));
+router.use(auth.restrictTo('pro', 'admin'));
 router.route('/:league/:id/spreads')
     .get(matchCtrl.getMatchSpreads);
 
