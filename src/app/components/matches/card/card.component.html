@@ -1,0 +1,14 @@
+<div class="ba-card-wrapper">
+  <div class="w3-row">
+    <div *ngFor="let odd of odds" class="w3-col m3">
+      <div class="w3-card w3-padding">
+        <p><span class="ba-left">{{match.home_team || home_team}}</span> odds <span class="ba-right">{{odd.odds_home | number: '.2'}}</span></p>
+        <p *ngIf="odd.odds_draw">Draw <span class="ba-right">{{odd.odds_draw | number: '.2'}}</span></p>
+        <p><span class="ba-left">{{match.away_team || away_team}}</span> odds <span class="ba-right">{{odd.odds_away | number: '.2'}}</span></p>
+        <p *ngIf="odd.points_home"><span class="ba-left">{{home_team}}</span> points <span class="ba-right">{{odd.points_home | number: '.2'}}</span></p>
+        <p *ngIf="odd.points_away"><span class="ba-left">{{away_team}}</span> points<span class="ba-right">{{odd.points_away | number: '.2'}}</span></p>
+        <h3>{{odd.site.name}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

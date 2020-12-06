@@ -7,9 +7,7 @@ import { MatchRoutingModule } from './matches-routing.module';
 import { MatchesComponent } from './matches.component';
 import { MatchComponent } from './match/match.component';
 import { MatchDetailsComponent } from './match-details/match-details.component';
-import { H2hCardComponent } from './cards/h2h-card/h2h-card.component';
-import { SpreadsCardComponent } from './cards/spreads-card/spreads-card.component';
-import { TotalsCardComponent } from './cards/totals-card/totals-card.component';
+import { CardComponent } from './card/card.component';
 import { reducer } from '../tickets/state/ticket.reducer';
 import { TicketEffects } from '../tickets/state/ticket.effects';
 
@@ -18,9 +16,7 @@ import { TicketEffects } from '../tickets/state/ticket.effects';
     MatchesComponent,
     MatchComponent,
     MatchDetailsComponent,
-    SpreadsCardComponent,
-    TotalsCardComponent,
-    H2hCardComponent
+    CardComponent
   ],
   imports: [
     MatchRoutingModule,

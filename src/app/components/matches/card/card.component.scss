@@ -1,4 +1,4 @@
-@import '../../../../../assets/sass/main';
+@import "../../../../assets/sass/main";
 
 .w3 {
   &-card {
@@ -9,8 +9,8 @@
 
     p {
       color: $tint_gray;
-      margin: .5rem 0;
-      font-size: .8rem;
+      margin: 0.5rem 0;
+      font-size: 0.8rem;
       .ba-right {
         color: $primary_gray;
         font-weight: 700;
