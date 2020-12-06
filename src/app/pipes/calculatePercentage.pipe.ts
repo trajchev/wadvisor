@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CalculatePercentgePipe implements PipeTransform {
 
   transform(value: number, counterpart: number, args?: any): any {
-    return Math.round((100 / (value + counterpart)) * value) + '%';
+    return Math.round((100 / (value + counterpart)) * counterpart) + '%';
   }
 
 }
