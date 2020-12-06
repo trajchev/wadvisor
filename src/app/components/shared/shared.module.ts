@@ -14,6 +14,7 @@ import { TicketCreateComponent } from './modal/ticket-create/ticket-create.compo
 import { MsToDatePipe } from '../../pipes/msToDate.pipe';
 import { StrToDatePipe } from '../../pipes/strToDate.pipe';
 import { KeepHTMLPipe } from '../../pipes/keepHTML.pipe';
+import { CalculatePercentgePipe } from '../../pipes/calculatePercentage.pipe';
 import { DataCacheInterceptor } from './data-cache.interceptor';
 import { InputComponent } from './input/input.component';
 import { HorizontalScrollDirective } from '../../directives/horizontal-scroll.directive';
@@ -23,6 +24,7 @@ import { HorizontalScrollDirective } from '../../directives/horizontal-scroll.di
     MsToDatePipe,
     StrToDatePipe,
     KeepHTMLPipe,
+    CalculatePercentgePipe,
     HeaderComponent,
     NavMainComponent,
     ConfirmationComponent,
@@ -52,6 +54,7 @@ import { HorizontalScrollDirective } from '../../directives/horizontal-scroll.di
     MsToDatePipe,
     StrToDatePipe,
     KeepHTMLPipe,
+    CalculatePercentgePipe,
     NavMainComponent,
     ConfirmationComponent,
     SnackbarComponent,

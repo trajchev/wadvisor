@@ -20,11 +20,11 @@
             <ul class="w3-ul">
               <li class="w3-panel w3-animate-bottom">
                 <span class="ba-text-gold">{{item.home_team}}</span> to win
-                <span class="w3-tag">{{item.h2hs[0].odds_home | number: '.2'}}</span>
+                <span class="w3-tag">{{item.h2hs[0].odds_home | calculatePercentage: item.h2hs[0].odds_away}}</span>
               </li>
               <li class="w3-panel">
                 <span class="ba-text-gold">{{item.away_team}}</span> to win
-                <span class="w3-tag">{{item.h2hs[0].odds_away | number: '.2'}}</span>
+                <span class="w3-tag">{{item.h2hs[0].odds_away | calculatePercentage: item.h2hs[0].odds_home}}</span>
               </li>
             </ul>
           </div>
