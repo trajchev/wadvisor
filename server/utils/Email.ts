@@ -4,7 +4,7 @@ import htmlToText from 'html-to-text';
 import { IUser } from '../models/interfaces/user.interface';
 import { mailTemplates } from '../models/constants/enums';
 
-export class Email {
+export default class Email {
 
   private to: string;
   private url: string;
