@@ -140,21 +140,21 @@ User.addHook.prototype.correctPassword = async (candidatePass: string, userPass:
 
 User.addHook.prototype.changedPassAfter = function(JWTTimestamp: number) {
 
-    if (this.passwordChangedAt) {
-        const changedTimestamp = this.passwordChangedAt.getTime() / 1000;
-        return JWTTimestamp < changedTimestamp;
-    }
+  if (this.passwordChangedAt) {
+    const changedTimestamp = this.passwordChangedAt.getTime() / 1000;
+    return JWTTimestamp < changedTimestamp;
+  }
 
-    // Not changed
-    return false;
+  // Not changed
+  return false;
 }
 
 User.addHook.prototype.createPasswordResetToken = function() {
 
-    const resetToken = crypto.randomBytes(32).toString('hex');
-    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-    this.passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRES_IN!;
-    return resetToken;
+  const resetToken = crypto.randomBytes(32).toString('hex');
+  this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+  this.passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRES_IN!;
+  return resetToken;
 
 }
 

@@ -6,10 +6,10 @@ import { mailTemplates } from '../models/constants/enums';
 
 export default class Email {
 
-  private to: string;
+  private to: string = '';
   private url: string;
   private from: string;
-  private username: string;
+  private username: string = '';
 
   constructor(user: IUser, url: string) {
     this.to = user.email;
@@ -22,8 +22,8 @@ export default class Email {
     return nodemailer.createTransport({
       service: 'Sendgrid',
       auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD
+        user: process.env.SENDGRID_USERNAME,
+        pass: process.env.SENDGRID_PASSWORD
       }
     });
   }
@@ -33,18 +33,18 @@ export default class Email {
 
     // Define the html for the email
     const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
-        username: this.username,
-        url: this.url,
-        subject
+      username: this.username,
+      url: this.url,
+      subject
     });
 
     // Define email options
     const mailOptions = {
-        from: this.from,
-        to: this.to,
-        subject: subject,
-        html: html,
-        text: htmlToText.fromString(html)
+      from: this.from,
+      to: this.to,
+      subject: subject,
+      html: html,
+      text: htmlToText.fromString(html)
     }
 
     // Create transport and send mail
